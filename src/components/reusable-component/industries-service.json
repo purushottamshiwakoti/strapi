@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_reusable_component_industries_services",
+  "info": {
+    "displayName": "IndustriesService",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "services": {
+      "type": "string",
+      "required": true
+    },
+    "img": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_share_tabs_header_tabs",
+  "info": {
+    "displayName": "HeaderTabs",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "Home": {
+      "type": "string",
+      "required": true
+    },
+    "Products": {
+      "type": "string",
+      "required": true
+    },
+    "Blogs": {
+      "type": "string",
+      "required": true
+    },
+    "About_us": {
+      "type": "string",
+      "required": true
+    },
+    "Contact_us": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

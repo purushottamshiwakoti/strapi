@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_share_tabs_main_titles",
+  "info": {
+    "displayName": "Main-title",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Category": {
+      "type": "string",
+      "required": true
+    },
+    "Additional_category": {
+      "type": "string",
+      "required": true
+    },
+    "Our_brands": {
+      "type": "string",
+      "required": true
+    },
+    "Our_features": {
+      "type": "string",
+      "required": true
+    },
+    "Blogs": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_reusable_component_feedbacks",
+  "info": {
+    "displayName": "feedback"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "img": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "client_number": {
+      "type": "integer"
+    }
+  }
+}
