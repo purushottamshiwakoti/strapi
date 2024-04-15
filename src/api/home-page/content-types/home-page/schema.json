@@ -1,0 +1,42 @@
+{
+  "kind": "singleType",
+  "collectionName": "home_pages",
+  "info": {
+    "singularName": "home-page",
+    "pluralName": "home-pages",
+    "displayName": "Home Page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "BannerImage": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.shared-image",
+      "required": true
+    },
+    "BannerTitle": {
+      "type": "text",
+      "required": true
+    },
+    "BannerDescription": {
+      "type": "blocks",
+      "required": true
+    },
+    "BannerButtonName": {
+      "type": "string"
+    },
+    "ElectionDate": {
+      "type": "date",
+      "required": true
+    },
+    "SEO": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.seo"
+    }
+  }
+}

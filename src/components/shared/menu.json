@@ -11,6 +11,11 @@
     },
     "Link": {
       "type": "string"
+    },
+    "SubMenu": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.sub-menu"
     }
   }
 }

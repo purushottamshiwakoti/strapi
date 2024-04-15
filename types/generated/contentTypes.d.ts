@@ -1602,6 +1602,75 @@ export interface ApiHeaderHeader extends Schema.SingleType {
   };
 }
 
+export interface ApiHeaderMenuHeaderMenu extends Schema.SingleType {
+  collectionName: 'header_menus';
+  info: {
+    singularName: 'header-menu';
+    pluralName: 'header-menus';
+    displayName: 'Header Menu';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    logo: Attribute.Media & Attribute.Required;
+    Menu: Attribute.Component<'shared.menu', true> & Attribute.Required;
+    ButtonName: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::header-menu.header-menu',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::header-menu.header-menu',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiHomePageHomePage extends Schema.SingleType {
+  collectionName: 'home_pages';
+  info: {
+    singularName: 'home-page';
+    pluralName: 'home-pages';
+    displayName: 'Home Page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    BannerImage: Attribute.Component<'shared.shared-image'> &
+      Attribute.Required;
+    BannerTitle: Attribute.Text & Attribute.Required;
+    BannerDescription: Attribute.Blocks & Attribute.Required;
+    BannerButtonName: Attribute.String;
+    ElectionDate: Attribute.Date & Attribute.Required;
+    SEO: Attribute.Component<'shared.seo', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::home-page.home-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::home-page.home-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiLicenseLicense extends Schema.CollectionType {
   collectionName: 'licenses';
   info: {
@@ -2035,6 +2104,8 @@ declare module '@strapi/types' {
       'api::faq.faq': ApiFaqFaq;
       'api::feature.feature': ApiFeatureFeature;
       'api::header.header': ApiHeaderHeader;
+      'api::header-menu.header-menu': ApiHeaderMenuHeaderMenu;
+      'api::home-page.home-page': ApiHomePageHomePage;
       'api::license.license': ApiLicenseLicense;
       'api::menu.menu': ApiMenuMenu;
       'api::news-seo.news-seo': ApiNewsSeoNewsSeo;

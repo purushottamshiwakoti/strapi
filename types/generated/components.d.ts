@@ -88,6 +88,7 @@ export interface SharedMenu extends Schema.Component {
   attributes: {
     Name: Attribute.String;
     Link: Attribute.String;
+    SubMenu: Attribute.Component<'shared.sub-menu', true>;
   };
 }
 
@@ -117,6 +118,17 @@ export interface SharedSharedImage extends Schema.Component {
   };
 }
 
+export interface SharedSubMenu extends Schema.Component {
+  collectionName: 'components_shared_sub_menus';
+  info: {
+    displayName: 'SubMenu';
+  };
+  attributes: {
+    Name: Attribute.String & Attribute.Required;
+    Link: Attribute.String & Attribute.Required;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -129,6 +141,7 @@ declare module '@strapi/types' {
       'shared.menu': SharedMenu;
       'shared.seo': SharedSeo;
       'shared.shared-image': SharedSharedImage;
+      'shared.sub-menu': SharedSubMenu;
     }
   }
 }
