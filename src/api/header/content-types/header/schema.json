@@ -1,0 +1,48 @@
+{
+  "kind": "singleType",
+  "collectionName": "headers",
+  "info": {
+    "singularName": "header",
+    "pluralName": "headers",
+    "displayName": "Header",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Icon": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Menu": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.menu"
+    },
+    "NewsCampaign": {
+      "type": "component",
+      "repeatable": true,
+      "component": "reusable-component.news-campaign"
+    },
+    "SocialMedia": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.social-media"
+    },
+    "BackgroundColor": {
+      "type": "customField",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "customField": "plugin::color-picker.color"
+    }
+  }
+}

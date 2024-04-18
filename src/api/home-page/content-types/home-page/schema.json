@@ -12,31 +12,25 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "BannerImage": {
-      "type": "component",
-      "repeatable": false,
-      "component": "shared.shared-image",
-      "required": true
-    },
-    "BannerTitle": {
-      "type": "text",
-      "required": true
-    },
-    "BannerDescription": {
-      "type": "blocks",
-      "required": true
-    },
-    "BannerButtonName": {
-      "type": "string"
-    },
-    "ElectionDate": {
-      "type": "date",
-      "required": true
-    },
     "SEO": {
       "type": "component",
       "repeatable": true,
       "component": "shared.seo"
+    },
+    "Banner": {
+      "type": "component",
+      "repeatable": false,
+      "component": "reusable-component.banner"
+    },
+    "Election": {
+      "type": "component",
+      "repeatable": false,
+      "component": "reusable-component.election-date"
+    },
+    "Services": {
+      "type": "component",
+      "repeatable": true,
+      "component": "reusable-component.services"
     }
   }
 }

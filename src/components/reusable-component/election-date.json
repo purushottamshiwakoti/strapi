@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_reusable_component_election_dates",
+  "info": {
+    "displayName": "ElectionDate",
+    "icon": "calendar"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Description": {
+      "type": "text",
+      "required": true
+    },
+    "ShowElection": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "ElectionDate": {
+      "type": "date"
+    }
+  }
+}

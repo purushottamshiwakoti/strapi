@@ -861,6 +861,43 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
   };
 }
 
+export interface ApiHeaderHeader extends Schema.SingleType {
+  collectionName: 'headers';
+  info: {
+    singularName: 'header';
+    pluralName: 'headers';
+    displayName: 'Header';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String & Attribute.Required;
+    Icon: Attribute.Media & Attribute.Required;
+    Menu: Attribute.Component<'shared.menu', true>;
+    NewsCampaign: Attribute.Component<'reusable-component.news-campaign', true>;
+    SocialMedia: Attribute.Component<'shared.social-media', true>;
+    BackgroundColor: Attribute.String &
+      Attribute.CustomField<'plugin::color-picker.color'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::header.header',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::header.header',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiHeaderMenuHeaderMenu extends Schema.SingleType {
   collectionName: 'header_menus';
   info: {
@@ -880,6 +917,8 @@ export interface ApiHeaderMenuHeaderMenu extends Schema.SingleType {
       Attribute.Required &
       Attribute.DefaultTo<false>;
     ButtonLink: Attribute.String;
+    BackgroundColor: Attribute.String &
+      Attribute.CustomField<'plugin::color-picker.color'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -910,13 +949,10 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    BannerImage: Attribute.Component<'shared.shared-image'> &
-      Attribute.Required;
-    BannerTitle: Attribute.Text & Attribute.Required;
-    BannerDescription: Attribute.Blocks & Attribute.Required;
-    BannerButtonName: Attribute.String;
-    ElectionDate: Attribute.Date & Attribute.Required;
     SEO: Attribute.Component<'shared.seo', true>;
+    Banner: Attribute.Component<'reusable-component.banner'>;
+    Election: Attribute.Component<'reusable-component.election-date'>;
+    Services: Attribute.Component<'reusable-component.services', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -955,6 +991,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::article.article': ApiArticleArticle;
       'api::category.category': ApiCategoryCategory;
+      'api::header.header': ApiHeaderHeader;
       'api::header-menu.header-menu': ApiHeaderMenuHeaderMenu;
       'api::home-page.home-page': ApiHomePageHomePage;
     }

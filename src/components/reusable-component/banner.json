@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_shared_banners",
+  "info": {
+    "displayName": "Banner",
+    "icon": "check",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "text",
+      "required": true
+    },
+    "Description": {
+      "type": "text",
+      "required": true
+    },
+    "ShowInput": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "ButtonName": {
+      "type": "string",
+      "required": true
+    },
+    "BannerImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

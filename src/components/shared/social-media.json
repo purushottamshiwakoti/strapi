@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_shared_social_medias",
+  "info": {
+    "displayName": "SocialMedia",
+    "icon": "twitter"
+  },
+  "options": {},
+  "attributes": {
+    "Link": {
+      "type": "string",
+      "required": true
+    },
+    "Name": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

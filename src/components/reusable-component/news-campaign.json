@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_reusable_component_news_campaigns",
+  "info": {
+    "displayName": "NewsCampaign",
+    "icon": "attachment"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "text",
+      "required": true
+    }
+  }
+}
