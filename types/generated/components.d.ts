@@ -94,17 +94,29 @@ export interface ReusableComponentOurTeam extends Schema.Component {
   };
 }
 
+export interface ReusableComponentServiceIcons extends Schema.Component {
+  collectionName: 'components_reusable_component_service_icons';
+  info: {
+    displayName: 'ServiceIcons';
+  };
+  attributes: {
+    Icon: Attribute.Component<'shared.shared-image'> & Attribute.Required;
+    ButtonName: Attribute.String & Attribute.Required;
+  };
+}
+
 export interface ReusableComponentServices extends Schema.Component {
   collectionName: 'components_reusable_component_services';
   info: {
     displayName: 'Services';
     icon: 'gate';
+    description: '';
   };
   attributes: {
     Title: Attribute.String & Attribute.Required;
     SubTitle: Attribute.Text & Attribute.Required;
     Description: Attribute.Text & Attribute.Required;
-    IconImage: Attribute.Component<'shared.shared-image'>;
+    Icon: Attribute.Component<'reusable-component.service-icons', true>;
   };
 }
 
@@ -178,6 +190,18 @@ export interface SharedSeo extends Schema.Component {
   };
 }
 
+export interface SharedServcieIcon extends Schema.Component {
+  collectionName: 'components_shared_servcie_icons';
+  info: {
+    displayName: 'ServcieIcon';
+    icon: 'check';
+  };
+  attributes: {
+    Icon: Attribute.Component<'shared.shared-image'> & Attribute.Required;
+    ButtonName: Attribute.String & Attribute.Required;
+  };
+}
+
 export interface SharedSharedImage extends Schema.Component {
   collectionName: 'components_shared_shared_images';
   info: {
@@ -223,12 +247,14 @@ declare module '@strapi/types' {
       'reusable-component.industries-service': ReusableComponentIndustriesService;
       'reusable-component.news-campaign': ReusableComponentNewsCampaign;
       'reusable-component.our-team': ReusableComponentOurTeam;
+      'reusable-component.service-icons': ReusableComponentServiceIcons;
       'reusable-component.services': ReusableComponentServices;
       'reusable-component.sub-category': ReusableComponentSubCategory;
       'share-tabs.header-tabs': ShareTabsHeaderTabs;
       'shared.main-title': SharedMainTitle;
       'shared.menu': SharedMenu;
       'shared.seo': SharedSeo;
+      'shared.servcie-icon': SharedServcieIcon;
       'shared.shared-image': SharedSharedImage;
       'shared.social-media': SharedSocialMedia;
       'shared.sub-menu': SharedSubMenu;

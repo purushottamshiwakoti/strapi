@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_reusable_component_service_icons",
+  "info": {
+    "displayName": "ServiceIcons"
+  },
+  "options": {},
+  "attributes": {
+    "Icon": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.shared-image",
+      "required": true
+    },
+    "ButtonName": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

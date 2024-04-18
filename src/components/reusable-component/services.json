@@ -2,7 +2,8 @@
   "collectionName": "components_reusable_component_services",
   "info": {
     "displayName": "Services",
-    "icon": "gate"
+    "icon": "gate",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -18,10 +19,11 @@
       "type": "text",
       "required": true
     },
-    "IconImage": {
+    "Icon": {
+      "displayName": "ServiceIcons",
       "type": "component",
-      "repeatable": false,
-      "component": "shared.shared-image"
+      "repeatable": true,
+      "component": "reusable-component.service-icons"
     }
   }
 }
