@@ -4,7 +4,8 @@
   "info": {
     "singularName": "header-menu",
     "pluralName": "header-menus",
-    "displayName": "Header Menu"
+    "displayName": "Header Menu",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,12 +13,12 @@
   "pluginOptions": {},
   "attributes": {
     "logo": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "Menu": {
       "type": "component",
@@ -26,6 +27,14 @@
       "required": true
     },
     "ButtonName": {
+      "type": "string"
+    },
+    "ShowButton": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "ButtonLink": {
       "type": "string"
     }
   }

@@ -49,6 +49,19 @@ export interface ReusableComponentOurTeam extends Schema.Component {
   };
 }
 
+export interface ReusableComponentSubCategory extends Schema.Component {
+  collectionName: 'components_reusable_component_sub_categories';
+  info: {
+    displayName: 'Sub Category';
+    icon: 'cube';
+    description: '';
+  };
+  attributes: {
+    Name: Attribute.String & Attribute.Required;
+    Slug: Attribute.String & Attribute.Required;
+  };
+}
+
 export interface ShareTabsHeaderTabs extends Schema.Component {
   collectionName: 'components_share_tabs_header_tabs';
   info: {
@@ -136,6 +149,7 @@ declare module '@strapi/types' {
       'reusable-component.feedback': ReusableComponentFeedback;
       'reusable-component.industries-service': ReusableComponentIndustriesService;
       'reusable-component.our-team': ReusableComponentOurTeam;
+      'reusable-component.sub-category': ReusableComponentSubCategory;
       'share-tabs.header-tabs': ShareTabsHeaderTabs;
       'shared.main-title': SharedMainTitle;
       'shared.menu': SharedMenu;
