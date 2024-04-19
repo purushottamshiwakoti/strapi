@@ -37,10 +37,57 @@
       "repeatable": false,
       "component": "reusable-component.about"
     },
-    "Donation": {
+    "DonationText": {
+      "type": "string",
+      "required": true
+    },
+    "DonationDescription": {
+      "type": "text",
+      "required": true
+    },
+    "DonationBanner": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "DonationIcons": {
       "type": "component",
-      "repeatable": false,
-      "component": "reusable-component.donations"
+      "repeatable": true,
+      "component": "reusable-component.donation-icon"
+    },
+    "MovementTitle": {
+      "type": "string",
+      "required": true
+    },
+    "MovementDescription": {
+      "type": "text",
+      "required": true
+    },
+    "MovementIcon": {
+      "type": "component",
+      "repeatable": true,
+      "component": "reusable-component.donation-icon"
+    },
+    "SocialMedia": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.social-media"
+    },
+    "ReviewTitle": {
+      "type": "string",
+      "required": true
+    },
+    "ReviewDescription": {
+      "type": "text",
+      "required": true
+    },
+    "Reviews": {
+      "type": "component",
+      "repeatable": true,
+      "component": "reusable-component.review"
     }
   }
 }

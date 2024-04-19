@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_reusable_component_reviews",
+  "info": {
+    "displayName": "Review"
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Designation": {
+      "type": "string",
+      "required": true
+    },
+    "Stars": {
+      "type": "integer",
+      "required": true,
+      "max": 5
+    },
+    "Review": {
+      "type": "blocks"
+    }
+  }
+}

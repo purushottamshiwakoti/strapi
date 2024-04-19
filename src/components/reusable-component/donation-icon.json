@@ -1,7 +1,8 @@
 {
   "collectionName": "components_shared_donation_icons",
   "info": {
-    "displayName": "DonationIcon"
+    "displayName": "DonationIcon",
+    "description": ""
   },
   "options": {},
   "attributes": {

@@ -34,10 +34,23 @@ export interface ReusableComponentBanner extends Schema.Component {
   };
 }
 
+export interface ReusableComponentDonationIcon extends Schema.Component {
+  collectionName: 'components_shared_donation_icons';
+  info: {
+    displayName: 'DonationIcon';
+    description: '';
+  };
+  attributes: {
+    Title: Attribute.String & Attribute.Required;
+    Description: Attribute.Text & Attribute.Required;
+    Icon: Attribute.Component<'shared.shared-image'>;
+  };
+}
+
 export interface ReusableComponentDonations extends Schema.Component {
   collectionName: 'components_reusable_component_donations';
   info: {
-    displayName: 'Donations';
+    displayName: 'Donation';
     icon: 'check';
     description: '';
   };
@@ -124,6 +137,26 @@ export interface ReusableComponentOurTeam extends Schema.Component {
   };
 }
 
+export interface ReusableComponentReview extends Schema.Component {
+  collectionName: 'components_reusable_component_reviews';
+  info: {
+    displayName: 'Review';
+  };
+  attributes: {
+    Name: Attribute.String & Attribute.Required;
+    Designation: Attribute.String & Attribute.Required;
+    Stars: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetMinMax<
+        {
+          max: 5;
+        },
+        number
+      >;
+    Review: Attribute.Blocks;
+  };
+}
+
 export interface ReusableComponentServiceIcons extends Schema.Component {
   collectionName: 'components_reusable_component_service_icons';
   info: {
@@ -175,18 +208,6 @@ export interface ShareTabsHeaderTabs extends Schema.Component {
     Blogs: Attribute.String & Attribute.Required;
     About_us: Attribute.String & Attribute.Required;
     Contact_us: Attribute.String & Attribute.Required;
-  };
-}
-
-export interface SharedDonationIcon extends Schema.Component {
-  collectionName: 'components_shared_donation_icons';
-  info: {
-    displayName: 'DonationIcon';
-  };
-  attributes: {
-    Title: Attribute.String & Attribute.Required;
-    Description: Attribute.Text & Attribute.Required;
-    Icon: Attribute.Component<'shared.shared-image'>;
   };
 }
 
@@ -284,6 +305,7 @@ declare module '@strapi/types' {
     export interface Components {
       'reusable-component.about': ReusableComponentAbout;
       'reusable-component.banner': ReusableComponentBanner;
+      'reusable-component.donation-icon': ReusableComponentDonationIcon;
       'reusable-component.donations': ReusableComponentDonations;
       'reusable-component.election-date': ReusableComponentElectionDate;
       'reusable-component.features': ReusableComponentFeatures;
@@ -291,11 +313,11 @@ declare module '@strapi/types' {
       'reusable-component.industries-service': ReusableComponentIndustriesService;
       'reusable-component.news-campaign': ReusableComponentNewsCampaign;
       'reusable-component.our-team': ReusableComponentOurTeam;
+      'reusable-component.review': ReusableComponentReview;
       'reusable-component.service-icons': ReusableComponentServiceIcons;
       'reusable-component.services': ReusableComponentServices;
       'reusable-component.sub-category': ReusableComponentSubCategory;
       'share-tabs.header-tabs': ShareTabsHeaderTabs;
-      'shared.donation-icon': SharedDonationIcon;
       'shared.main-title': SharedMainTitle;
       'shared.menu': SharedMenu;
       'shared.seo': SharedSeo;

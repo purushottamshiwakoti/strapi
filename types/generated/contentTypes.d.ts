@@ -796,11 +796,6 @@ export interface ApiArticleArticle extends Schema.CollectionType {
   attributes: {
     Title: Attribute.Text & Attribute.Required;
     Description: Attribute.RichText & Attribute.Required;
-    categories: Attribute.Relation<
-      'api::article.article',
-      'oneToMany',
-      'api::category.category'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -812,48 +807,6 @@ export interface ApiArticleArticle extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::article.article',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiCategoryCategory extends Schema.CollectionType {
-  collectionName: 'categories';
-  info: {
-    singularName: 'category';
-    pluralName: 'categories';
-    displayName: 'Category';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Name: Attribute.String & Attribute.Required;
-    Slug: Attribute.String & Attribute.Required & Attribute.Unique;
-    parent: Attribute.Relation<
-      'api::category.category',
-      'oneToOne',
-      'api::category.category'
-    >;
-    article: Attribute.Relation<
-      'api::category.category',
-      'manyToOne',
-      'api::article.article'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::category.category',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::category.category',
       'oneToOne',
       'admin::user'
     > &
@@ -954,7 +907,20 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
     Election: Attribute.Component<'reusable-component.election-date'>;
     Services: Attribute.Component<'reusable-component.services'>;
     AboutSFM: Attribute.Component<'reusable-component.about'>;
-    Donation: Attribute.Component<'reusable-component.donations'>;
+    DonationText: Attribute.String & Attribute.Required;
+    DonationDescription: Attribute.Text & Attribute.Required;
+    DonationBanner: Attribute.Media & Attribute.Required;
+    DonationIcons: Attribute.Component<
+      'reusable-component.donation-icon',
+      true
+    >;
+    MovementTitle: Attribute.String & Attribute.Required;
+    MovementDescription: Attribute.Text & Attribute.Required;
+    MovementIcon: Attribute.Component<'reusable-component.donation-icon', true>;
+    SocialMedia: Attribute.Component<'shared.social-media', true>;
+    ReviewTitle: Attribute.String & Attribute.Required;
+    ReviewDescription: Attribute.Text & Attribute.Required;
+    Reviews: Attribute.Component<'reusable-component.review', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -966,6 +932,88 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::home-page.home-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPagePage extends Schema.CollectionType {
+  collectionName: 'pages';
+  info: {
+    singularName: 'page';
+    pluralName: 'pages';
+    displayName: 'Page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String & Attribute.Required;
+    slug: Attribute.UID<'api::page.page', 'Title'> & Attribute.Required;
+    sub_pages: Attribute.Relation<
+      'api::page.page',
+      'oneToMany',
+      'api::sub-page.sub-page'
+    >;
+    Offline: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::page.page', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::page.page', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSubPageSubPage extends Schema.CollectionType {
+  collectionName: 'sub_pages';
+  info: {
+    singularName: 'sub-page';
+    pluralName: 'sub-pages';
+    displayName: 'SubPage';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String & Attribute.Required;
+    Slug: Attribute.UID<'api::sub-page.sub-page', 'Title'> & Attribute.Required;
+    page: Attribute.Relation<
+      'api::sub-page.sub-page',
+      'manyToOne',
+      'api::page.page'
+    >;
+    parent: Attribute.Relation<
+      'api::sub-page.sub-page',
+      'manyToOne',
+      'api::sub-page.sub-page'
+    >;
+    children: Attribute.Relation<
+      'api::sub-page.sub-page',
+      'oneToMany',
+      'api::sub-page.sub-page'
+    >;
+    Offline: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::sub-page.sub-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::sub-page.sub-page',
       'oneToOne',
       'admin::user'
     > &
@@ -992,10 +1040,11 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::article.article': ApiArticleArticle;
-      'api::category.category': ApiCategoryCategory;
       'api::header.header': ApiHeaderHeader;
       'api::header-menu.header-menu': ApiHeaderMenuHeaderMenu;
       'api::home-page.home-page': ApiHomePageHomePage;
+      'api::page.page': ApiPagePage;
+      'api::sub-page.sub-page': ApiSubPageSubPage;
     }
   }
 }
