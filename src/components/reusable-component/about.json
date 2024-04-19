@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_reusable_component_abouts",
+  "info": {
+    "displayName": "About",
+    "icon": "cup",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "text",
+      "required": true
+    },
+    "Position": {
+      "type": "string",
+      "required": true
+    },
+    "Description": {
+      "type": "blocks",
+      "required": true
+    },
+    "Image": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.shared-image"
+    },
+    "SocialMedia": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.social-media"
+    }
+  }
+}

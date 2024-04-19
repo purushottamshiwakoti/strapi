@@ -29,8 +29,13 @@
     },
     "Services": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "reusable-component.services"
+    },
+    "AboutSFM": {
+      "type": "component",
+      "repeatable": false,
+      "component": "reusable-component.about"
     }
   }
 }

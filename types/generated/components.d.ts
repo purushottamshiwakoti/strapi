@@ -1,5 +1,21 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface ReusableComponentAbout extends Schema.Component {
+  collectionName: 'components_reusable_component_abouts';
+  info: {
+    displayName: 'About';
+    icon: 'cup';
+    description: '';
+  };
+  attributes: {
+    Title: Attribute.Text & Attribute.Required;
+    Position: Attribute.String & Attribute.Required;
+    Description: Attribute.Blocks & Attribute.Required;
+    Image: Attribute.Component<'shared.shared-image'>;
+    SocialMedia: Attribute.Component<'shared.social-media', true>;
+  };
+}
+
 export interface ReusableComponentBanner extends Schema.Component {
   collectionName: 'components_shared_banners';
   info: {
@@ -240,6 +256,7 @@ export interface SharedSubMenu extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'reusable-component.about': ReusableComponentAbout;
       'reusable-component.banner': ReusableComponentBanner;
       'reusable-component.election-date': ReusableComponentElectionDate;
       'reusable-component.features': ReusableComponentFeatures;

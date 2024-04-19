@@ -952,7 +952,8 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
     SEO: Attribute.Component<'shared.seo', true>;
     Banner: Attribute.Component<'reusable-component.banner'>;
     Election: Attribute.Component<'reusable-component.election-date'>;
-    Services: Attribute.Component<'reusable-component.services', true>;
+    Services: Attribute.Component<'reusable-component.services'>;
+    AboutSFM: Attribute.Component<'reusable-component.about'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
