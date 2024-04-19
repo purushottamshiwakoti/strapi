@@ -954,6 +954,7 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
     Election: Attribute.Component<'reusable-component.election-date'>;
     Services: Attribute.Component<'reusable-component.services'>;
     AboutSFM: Attribute.Component<'reusable-component.about'>;
+    Donation: Attribute.Component<'reusable-component.donations'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

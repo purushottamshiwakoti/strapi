@@ -34,6 +34,20 @@ export interface ReusableComponentBanner extends Schema.Component {
   };
 }
 
+export interface ReusableComponentDonations extends Schema.Component {
+  collectionName: 'components_reusable_component_donations';
+  info: {
+    displayName: 'Donations';
+    icon: 'check';
+    description: '';
+  };
+  attributes: {
+    Title: Attribute.String & Attribute.Required;
+    Description: Attribute.Text & Attribute.Required;
+    BackgroundImage: Attribute.Media;
+  };
+}
+
 export interface ReusableComponentElectionDate extends Schema.Component {
   collectionName: 'components_reusable_component_election_dates';
   info: {
@@ -164,6 +178,18 @@ export interface ShareTabsHeaderTabs extends Schema.Component {
   };
 }
 
+export interface SharedDonationIcon extends Schema.Component {
+  collectionName: 'components_shared_donation_icons';
+  info: {
+    displayName: 'DonationIcon';
+  };
+  attributes: {
+    Title: Attribute.String & Attribute.Required;
+    Description: Attribute.Text & Attribute.Required;
+    Icon: Attribute.Component<'shared.shared-image'>;
+  };
+}
+
 export interface SharedMainTitle extends Schema.Component {
   collectionName: 'components_share_tabs_main_titles';
   info: {
@@ -258,6 +284,7 @@ declare module '@strapi/types' {
     export interface Components {
       'reusable-component.about': ReusableComponentAbout;
       'reusable-component.banner': ReusableComponentBanner;
+      'reusable-component.donations': ReusableComponentDonations;
       'reusable-component.election-date': ReusableComponentElectionDate;
       'reusable-component.features': ReusableComponentFeatures;
       'reusable-component.feedback': ReusableComponentFeedback;
@@ -268,6 +295,7 @@ declare module '@strapi/types' {
       'reusable-component.services': ReusableComponentServices;
       'reusable-component.sub-category': ReusableComponentSubCategory;
       'share-tabs.header-tabs': ShareTabsHeaderTabs;
+      'shared.donation-icon': SharedDonationIcon;
       'shared.main-title': SharedMainTitle;
       'shared.menu': SharedMenu;
       'shared.seo': SharedSeo;

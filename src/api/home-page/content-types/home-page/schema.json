@@ -36,6 +36,11 @@
       "type": "component",
       "repeatable": false,
       "component": "reusable-component.about"
+    },
+    "Donation": {
+      "type": "component",
+      "repeatable": false,
+      "component": "reusable-component.donations"
     }
   }
 }
