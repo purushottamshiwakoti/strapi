@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "seos",
+  "info": {
+    "singularName": "seo",
+    "pluralName": "seos",
+    "displayName": "SEO"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "GoogleAnalytics": {
+      "type": "text",
+      "required": false
+    },
+    "GoogleTagsManager": {
+      "type": "string"
+    },
+    "FacebookPexels": {
+      "type": "text"
+    }
+  }
+}

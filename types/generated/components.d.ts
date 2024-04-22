@@ -34,6 +34,26 @@ export interface ReusableComponentBanner extends Schema.Component {
   };
 }
 
+export interface ReusableComponentConfirmVotes extends Schema.Component {
+  collectionName: 'components_reusable_component_confirm_votes';
+  info: {
+    displayName: 'ConfirmVotes';
+    icon: 'database';
+    description: '';
+  };
+  attributes: {
+    Title: Attribute.String & Attribute.Required;
+    Subtitle: Attribute.String & Attribute.Required;
+    Description: Attribute.Text & Attribute.Required;
+    ShowButton: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<true>;
+    ButtonName: Attribute.String;
+    ButtonLink: Attribute.String;
+    BackgroundImage: Attribute.Media & Attribute.Required;
+  };
+}
+
 export interface ReusableComponentDonationIcon extends Schema.Component {
   collectionName: 'components_shared_donation_icons';
   info: {
@@ -74,6 +94,19 @@ export interface ReusableComponentElectionDate extends Schema.Component {
       Attribute.Required &
       Attribute.DefaultTo<true>;
     ElectionDate: Attribute.Date;
+  };
+}
+
+export interface ReusableComponentFaq extends Schema.Component {
+  collectionName: 'components_reusable_component_faqs';
+  info: {
+    displayName: 'Faq';
+    description: '';
+  };
+  attributes: {
+    Title: Attribute.String & Attribute.Required;
+    Image: Attribute.Component<'shared.shared-image'>;
+    QuestionAnswer: Attribute.Component<'shared.question-answer', true>;
   };
 }
 
@@ -141,6 +174,7 @@ export interface ReusableComponentReview extends Schema.Component {
   collectionName: 'components_reusable_component_reviews';
   info: {
     displayName: 'Review';
+    description: '';
   };
   attributes: {
     Name: Attribute.String & Attribute.Required;
@@ -154,6 +188,7 @@ export interface ReusableComponentReview extends Schema.Component {
         number
       >;
     Review: Attribute.Blocks;
+    Image: Attribute.Component<'shared.shared-image'>;
   };
 }
 
@@ -236,6 +271,18 @@ export interface SharedMenu extends Schema.Component {
     Name: Attribute.String;
     Link: Attribute.String;
     SubMenu: Attribute.Component<'shared.sub-menu', true>;
+    page: Attribute.Relation<'shared.menu', 'oneToOne', 'api::page.page'>;
+  };
+}
+
+export interface SharedQuestionAnswer extends Schema.Component {
+  collectionName: 'components_shared_question_answers';
+  info: {
+    displayName: 'QuestionAnswer';
+  };
+  attributes: {
+    Question: Attribute.String & Attribute.Required;
+    Answer: Attribute.Text & Attribute.Required;
   };
 }
 
@@ -305,9 +352,11 @@ declare module '@strapi/types' {
     export interface Components {
       'reusable-component.about': ReusableComponentAbout;
       'reusable-component.banner': ReusableComponentBanner;
+      'reusable-component.confirm-votes': ReusableComponentConfirmVotes;
       'reusable-component.donation-icon': ReusableComponentDonationIcon;
       'reusable-component.donations': ReusableComponentDonations;
       'reusable-component.election-date': ReusableComponentElectionDate;
+      'reusable-component.faq': ReusableComponentFaq;
       'reusable-component.features': ReusableComponentFeatures;
       'reusable-component.feedback': ReusableComponentFeedback;
       'reusable-component.industries-service': ReusableComponentIndustriesService;
@@ -320,6 +369,7 @@ declare module '@strapi/types' {
       'share-tabs.header-tabs': ShareTabsHeaderTabs;
       'shared.main-title': SharedMainTitle;
       'shared.menu': SharedMenu;
+      'shared.question-answer': SharedQuestionAnswer;
       'shared.seo': SharedSeo;
       'shared.servcie-icon': SharedServcieIcon;
       'shared.shared-image': SharedSharedImage;

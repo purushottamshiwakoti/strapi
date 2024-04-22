@@ -872,6 +872,11 @@ export interface ApiHeaderMenuHeaderMenu extends Schema.SingleType {
     ButtonLink: Attribute.String;
     BackgroundColor: Attribute.String &
       Attribute.CustomField<'plugin::color-picker.color'>;
+    pages: Attribute.Relation<
+      'api::header-menu.header-menu',
+      'oneToMany',
+      'api::page.page'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -921,6 +926,10 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
     ReviewTitle: Attribute.String & Attribute.Required;
     ReviewDescription: Attribute.Text & Attribute.Required;
     Reviews: Attribute.Component<'reusable-component.review', true>;
+    ConfirmVotes: Attribute.Component<'reusable-component.confirm-votes'>;
+    FAQTitle: Attribute.String;
+    FAQSubTitle: Attribute.Text;
+    FAQ: Attribute.DynamicZone<['reusable-component.faq']>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -967,6 +976,30 @@ export interface ApiPagePage extends Schema.CollectionType {
     createdBy: Attribute.Relation<'api::page.page', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::page.page', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSeoSeo extends Schema.SingleType {
+  collectionName: 'seos';
+  info: {
+    singularName: 'seo';
+    pluralName: 'seos';
+    displayName: 'SEO';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    GoogleAnalytics: Attribute.Text;
+    GoogleTagsManager: Attribute.String;
+    FacebookPexels: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::seo.seo', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::seo.seo', 'oneToOne', 'admin::user'> &
       Attribute.Private;
   };
 }
@@ -1044,6 +1077,7 @@ declare module '@strapi/types' {
       'api::header-menu.header-menu': ApiHeaderMenuHeaderMenu;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::page.page': ApiPagePage;
+      'api::seo.seo': ApiSeoSeo;
       'api::sub-page.sub-page': ApiSubPageSubPage;
     }
   }

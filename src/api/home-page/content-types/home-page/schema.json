@@ -88,6 +88,23 @@
       "type": "component",
       "repeatable": true,
       "component": "reusable-component.review"
+    },
+    "ConfirmVotes": {
+      "type": "component",
+      "repeatable": false,
+      "component": "reusable-component.confirm-votes"
+    },
+    "FAQTitle": {
+      "type": "string"
+    },
+    "FAQSubTitle": {
+      "type": "text"
+    },
+    "FAQ": {
+      "type": "dynamiczone",
+      "components": [
+        "reusable-component.faq"
+      ]
     }
   }
 }
