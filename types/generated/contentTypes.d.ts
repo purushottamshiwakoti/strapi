@@ -814,6 +814,44 @@ export interface ApiArticleArticle extends Schema.CollectionType {
   };
 }
 
+export interface ApiFooterFooter extends Schema.SingleType {
+  collectionName: 'footers';
+  info: {
+    singularName: 'footer';
+    pluralName: 'footers';
+    displayName: 'Footer';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Logo: Attribute.Component<'shared.shared-image'>;
+    AboutTitle: Attribute.String;
+    AboutDescription: Attribute.Text;
+    GetInTouchTitle: Attribute.String;
+    Phone: Attribute.String;
+    Email: Attribute.Email;
+    Location: Attribute.Text;
+    SocialMedia: Attribute.Component<'shared.social-media', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::footer.footer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::footer.footer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiHeaderHeader extends Schema.SingleType {
   collectionName: 'headers';
   info: {
@@ -872,11 +910,6 @@ export interface ApiHeaderMenuHeaderMenu extends Schema.SingleType {
     ButtonLink: Attribute.String;
     BackgroundColor: Attribute.String &
       Attribute.CustomField<'plugin::color-picker.color'>;
-    pages: Attribute.Relation<
-      'api::header-menu.header-menu',
-      'oneToMany',
-      'api::page.page'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1073,6 +1106,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::article.article': ApiArticleArticle;
+      'api::footer.footer': ApiFooterFooter;
       'api::header.header': ApiHeaderHeader;
       'api::header-menu.header-menu': ApiHeaderMenuHeaderMenu;
       'api::home-page.home-page': ApiHomePageHomePage;

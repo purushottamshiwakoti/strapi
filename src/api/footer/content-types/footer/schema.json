@@ -1,0 +1,44 @@
+{
+  "kind": "singleType",
+  "collectionName": "footers",
+  "info": {
+    "singularName": "footer",
+    "pluralName": "footers",
+    "displayName": "Footer",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Logo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.shared-image"
+    },
+    "AboutTitle": {
+      "type": "string"
+    },
+    "AboutDescription": {
+      "type": "text"
+    },
+    "GetInTouchTitle": {
+      "type": "string"
+    },
+    "Phone": {
+      "type": "string"
+    },
+    "Email": {
+      "type": "email"
+    },
+    "Location": {
+      "type": "text"
+    },
+    "SocialMedia": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.social-media"
+    }
+  }
+}
