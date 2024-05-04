@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_shared_footer_counters",
+  "info": {
+    "displayName": "FooterCounter"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "string"
+    }
+  }
+}

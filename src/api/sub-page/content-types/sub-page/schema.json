@@ -10,39 +10,54 @@
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "Title": {
-      "type": "string",
-      "required": true
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
     },
     "Slug": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
       "type": "uid",
-      "targetField": "Title",
-      "required": true
+      "targetField": "Title"
+    },
+    "Offline": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "boolean",
+      "default": false
     },
     "page": {
       "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::page.page",
-      "inversedBy": "sub_pages"
+      "relation": "oneToOne",
+      "target": "api::page.page"
     },
-    "parent": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::sub-page.sub-page",
-      "inversedBy": "children"
-    },
-    "children": {
+    "parents": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::sub-page.sub-page",
-      "mappedBy": "parent"
+      "mappedBy": "children"
     },
-    "Offline": {
-      "type": "boolean",
-      "default": false,
-      "required": true
+    "children": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::sub-page.sub-page",
+      "inversedBy": "parents"
     }
   }
 }

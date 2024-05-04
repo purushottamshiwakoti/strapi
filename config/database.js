@@ -106,11 +106,14 @@ module.exports = ({ env }) => {
 //   connection: {
 //     client: "postgres", // Specifies PostgreSQL as the database client
 //     connection: {
-//       host: env("DATABASE_HOST", "localhost"), // PostgreSQL host (defaults to localhost)
+//       host: env(
+//         "DATABASE_HOST",
+//         "dpg-cok7jnv79t8c73c4dg60-a.oregon-postgres.render.com"
+//       ), // PostgreSQL host (defaults to localhost)
 //       port: env.int("DATABASE_PORT", 5432), // PostgreSQL port (defaults to 5432)
-//       database: env("DATABASE_NAME", "heavylifters"), // Name of the PostgreSQL database
-//       user: env("DATABASE_USERNAME", "postgres"), // PostgreSQL database user
-//       password: env("DATABASE_PASSWORD", "puru"), // Password for the database user
+//       database: env("DATABASE_NAME", "strapi_obpj"), // Name of the PostgreSQL database
+//       user: env("DATABASE_USERNAME", "strapi_obpj_user"), // PostgreSQL database user
+//       password: env("DATABASE_PASSWORD", "pv3JNB3WfFfSndnDfJnbzmESn2gkmGka"), // Password for the database user
 //       schema: env("DATABASE_SCHEMA", "public"), // Optional: PostgreSQL schema (defaults to 'public')
 //       ssl: env.bool("DATABASE_SSL_SELF", false) // Enable SSL for PostgreSQL connection (defaults to false)
 //         ? { rejectUnauthorized: false } // SSL options (for self-signed certificates)

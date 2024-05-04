@@ -4,17 +4,26 @@
   "info": {
     "singularName": "header",
     "pluralName": "headers",
-    "displayName": "Header",
+    "displayName": "Announcement Bar",
     "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "Title": {
       "type": "string",
-      "required": true
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "Icon": {
       "type": "media",
@@ -22,27 +31,52 @@
       "required": true,
       "allowedTypes": [
         "images"
-      ]
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
     },
     "Menu": {
       "type": "component",
       "repeatable": true,
-      "component": "shared.menu"
+      "component": "reusable-component.menu",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "NewsCampaign": {
       "type": "component",
       "repeatable": true,
-      "component": "reusable-component.news-campaign"
+      "component": "reusable-component.news-campaign",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "SocialMedia": {
       "type": "component",
       "repeatable": true,
-      "component": "shared.social-media"
+      "component": "shared.social-media",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
     },
     "BackgroundColor": {
       "type": "customField",
       "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
-      "customField": "plugin::color-picker.color"
+      "customField": "plugin::color-picker.color",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }

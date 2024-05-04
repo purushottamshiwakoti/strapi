@@ -105,7 +105,7 @@ export interface ReusableComponentFaq extends Schema.Component {
   };
   attributes: {
     Title: Attribute.String & Attribute.Required;
-    Image: Attribute.Component<'shared.shared-image'>;
+    Image: Attribute.Component<'shared.shared-image'> & Attribute.Required;
     QuestionAnswer: Attribute.Component<'shared.question-answer', true>;
   };
 }
@@ -143,6 +143,18 @@ export interface ReusableComponentIndustriesService extends Schema.Component {
   attributes: {
     services: Attribute.String & Attribute.Required;
     img: Attribute.Media;
+  };
+}
+
+export interface ReusableComponentMenu extends Schema.Component {
+  collectionName: 'components_shared_menus';
+  info: {
+    displayName: 'Menu';
+    description: '';
+  };
+  attributes: {
+    Name: Attribute.String;
+    Link: Attribute.String;
   };
 }
 
@@ -246,6 +258,35 @@ export interface ShareTabsHeaderTabs extends Schema.Component {
   };
 }
 
+export interface SharedFooterCounter extends Schema.Component {
+  collectionName: 'components_shared_footer_counters';
+  info: {
+    displayName: 'FooterCounter';
+  };
+  attributes: {
+    Title: Attribute.String;
+    Description: Attribute.String;
+  };
+}
+
+export interface SharedFooterMenu extends Schema.Component {
+  collectionName: 'components_shared_footer_menus';
+  info: {
+    displayName: 'FooterMenu';
+    description: '';
+  };
+  attributes: {
+    Name: Attribute.String;
+    Link: Attribute.String;
+    SubMenu: Attribute.Component<'shared.sub-menu', true>;
+    page: Attribute.Relation<
+      'shared.footer-menu',
+      'oneToOne',
+      'api::page.page'
+    >;
+  };
+}
+
 export interface SharedMainTitle extends Schema.Component {
   collectionName: 'components_share_tabs_main_titles';
   info: {
@@ -258,20 +299,6 @@ export interface SharedMainTitle extends Schema.Component {
     Our_brands: Attribute.String & Attribute.Required;
     Our_features: Attribute.String & Attribute.Required;
     Blogs: Attribute.String & Attribute.Required;
-  };
-}
-
-export interface SharedMenu extends Schema.Component {
-  collectionName: 'components_shared_menus';
-  info: {
-    displayName: 'Menu';
-    description: '';
-  };
-  attributes: {
-    Name: Attribute.String;
-    Link: Attribute.String;
-    SubMenu: Attribute.Component<'shared.sub-menu', true>;
-    page: Attribute.Relation<'shared.menu', 'oneToOne', 'api::page.page'>;
   };
 }
 
@@ -360,6 +387,7 @@ declare module '@strapi/types' {
       'reusable-component.features': ReusableComponentFeatures;
       'reusable-component.feedback': ReusableComponentFeedback;
       'reusable-component.industries-service': ReusableComponentIndustriesService;
+      'reusable-component.menu': ReusableComponentMenu;
       'reusable-component.news-campaign': ReusableComponentNewsCampaign;
       'reusable-component.our-team': ReusableComponentOurTeam;
       'reusable-component.review': ReusableComponentReview;
@@ -367,8 +395,9 @@ declare module '@strapi/types' {
       'reusable-component.services': ReusableComponentServices;
       'reusable-component.sub-category': ReusableComponentSubCategory;
       'share-tabs.header-tabs': ShareTabsHeaderTabs;
+      'shared.footer-counter': SharedFooterCounter;
+      'shared.footer-menu': SharedFooterMenu;
       'shared.main-title': SharedMainTitle;
-      'shared.menu': SharedMenu;
       'shared.question-answer': SharedQuestionAnswer;
       'shared.seo': SharedSeo;
       'shared.servcie-icon': SharedServcieIcon;

@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_shared_footer_menus",
+  "info": {
+    "displayName": "FooterMenu",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Link": {
+      "type": "string"
+    },
+    "SubMenu": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.sub-menu"
+    },
+    "page": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::page.page"
+    }
+  }
+}

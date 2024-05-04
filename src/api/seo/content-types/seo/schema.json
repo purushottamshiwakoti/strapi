@@ -4,7 +4,8 @@
   "info": {
     "singularName": "seo",
     "pluralName": "seos",
-    "displayName": "SEO"
+    "displayName": "SEO",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -13,13 +14,16 @@
   "attributes": {
     "GoogleAnalytics": {
       "type": "text",
-      "required": false
+      "required": false,
+      "pluginOptions": {}
     },
     "GoogleTagsManager": {
-      "type": "string"
+      "type": "string",
+      "pluginOptions": {}
     },
     "FacebookPexels": {
-      "type": "text"
+      "type": "text",
+      "pluginOptions": {}
     }
   }
 }

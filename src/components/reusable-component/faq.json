@@ -13,7 +13,8 @@
     "Image": {
       "type": "component",
       "repeatable": false,
-      "component": "shared.shared-image"
+      "component": "shared.shared-image",
+      "required": true
     },
     "QuestionAnswer": {
       "displayName": "QuestionAnswer",
