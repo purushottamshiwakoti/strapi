@@ -25,6 +25,7 @@
     "strapi-connector-mongoose": "^3.6.11",
     "strapi-plugin-do-not-delete": "^1.2.0",
     "strapi-plugin-menus": "^1.6.1",
+    "strapi-plugin-multi-select": "^1.2.3",
     "strapi-plugin-navigation": "^2.5.0",
     "strapi-plugin-vercel-deploy": "^1.4.0",
     "styled-components": "5.3.3"
