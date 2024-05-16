@@ -1658,7 +1658,7 @@ export interface ApiPagePage extends Schema.CollectionType {
       'manyToOne',
       'api::article.article'
     >;
-    alug: Attribute.UID<'api::page.page', 'Title'> &
+    slug: Attribute.UID<'api::page.page', 'Title'> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

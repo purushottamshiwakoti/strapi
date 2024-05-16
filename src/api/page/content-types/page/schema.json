@@ -41,7 +41,7 @@
       "target": "api::article.article",
       "inversedBy": "pages"
     },
-    "alug": {
+    "slug": {
       "pluginOptions": {
         "i18n": {
           "localized": true
