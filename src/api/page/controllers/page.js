@@ -6,7 +6,8 @@
 
 const { createCoreController } = require("@strapi/strapi").factories;
 
-module.exports = createCoreController("api::page.page", ({ strapi }) => ({
+module.exports = createCoreController("api::page.page", 
+({ strapi }) => ({
   async findOne(ctx) {
     const { id } = ctx.params; // Assuming the slug is passed as a parameter
     console.log(ctx.params);
@@ -15,7 +16,7 @@ module.exports = createCoreController("api::page.page", ({ strapi }) => ({
       where: {
         slug: id,
       },
-      populate: ["articles.Image"],
+      populate: ["articles.Image", "articles.pages", "articles.comments"],
     });
 
     console.log(entity);

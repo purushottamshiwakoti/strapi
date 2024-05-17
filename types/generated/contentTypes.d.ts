@@ -936,9 +936,9 @@ export interface ApiArticleArticle extends Schema.CollectionType {
           localized: false;
         };
       }>;
-    page: Attribute.Relation<
+    pages: Attribute.Relation<
       'api::article.article',
-      'manyToOne',
+      'manyToMany',
       'api::page.page'
     >;
     slug: Attribute.UID<'api::article.article', 'Title'> &
@@ -947,6 +947,11 @@ export interface ApiArticleArticle extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    comments: Attribute.Relation<
+      'api::article.article',
+      'oneToMany',
+      'api::comment.comment'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -968,6 +973,43 @@ export interface ApiArticleArticle extends Schema.CollectionType {
       'api::article.article'
     >;
     locale: Attribute.String;
+  };
+}
+
+export interface ApiCommentComment extends Schema.CollectionType {
+  collectionName: 'comments';
+  info: {
+    singularName: 'comment';
+    pluralName: 'comments';
+    displayName: 'Comment';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    FullName: Attribute.String & Attribute.Required;
+    Email: Attribute.Email & Attribute.Required;
+    Comment: Attribute.Text & Attribute.Required;
+    article: Attribute.Relation<
+      'api::comment.comment',
+      'manyToOne',
+      'api::article.article'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::comment.comment',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::comment.comment',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
   };
 }
 
@@ -1457,7 +1499,7 @@ export interface ApiPagePage extends Schema.CollectionType {
       }>;
     articles: Attribute.Relation<
       'api::page.page',
-      'oneToMany',
+      'manyToMany',
       'api::article.article'
     >;
     createdAt: Attribute.DateTime;
@@ -1597,6 +1639,7 @@ declare module '@strapi/types' {
       'plugin::menus.menu': PluginMenusMenu;
       'plugin::menus.menu-item': PluginMenusMenuItem;
       'api::article.article': ApiArticleArticle;
+      'api::comment.comment': ApiCommentComment;
       'api::footer.footer': ApiFooterFooter;
       'api::header.header': ApiHeaderHeader;
       'api::home-page.home-page': ApiHomePageHomePage;

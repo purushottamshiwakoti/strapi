@@ -59,9 +59,9 @@
         }
       }
     },
-    "page": {
+    "pages": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::page.page",
       "inversedBy": "articles"
     },
@@ -73,6 +73,12 @@
       },
       "type": "uid",
       "targetField": "Title"
+    },
+    "comments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::comment.comment",
+      "mappedBy": "article"
     }
   }
 }
