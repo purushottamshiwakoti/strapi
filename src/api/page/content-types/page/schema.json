@@ -35,12 +35,6 @@
         }
       }
     },
-    "article": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::article.article",
-      "inversedBy": "pages"
-    },
     "slug": {
       "pluginOptions": {
         "i18n": {
@@ -49,6 +43,12 @@
       },
       "type": "uid",
       "targetField": "Title"
+    },
+    "articles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::article.article",
+      "mappedBy": "page"
     }
   }
 }

@@ -59,11 +59,11 @@
         }
       }
     },
-    "pages": {
+    "page": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToOne",
       "target": "api::page.page",
-      "mappedBy": "article"
+      "inversedBy": "articles"
     },
     "slug": {
       "pluginOptions": {
