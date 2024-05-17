@@ -64,6 +64,15 @@
       "relation": "oneToMany",
       "target": "api::page.page",
       "mappedBy": "article"
+    },
+    "slug": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "uid",
+      "targetField": "Title"
     }
   }
 }

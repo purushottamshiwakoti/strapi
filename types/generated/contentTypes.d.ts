@@ -1151,6 +1151,12 @@ export interface ApiArticleArticle extends Schema.CollectionType {
       'oneToMany',
       'api::page.page'
     >;
+    slug: Attribute.UID<'api::article.article', 'Title'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

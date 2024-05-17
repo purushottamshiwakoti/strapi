@@ -15,6 +15,7 @@ module.exports = createCoreController("api::page.page", ({ strapi }) => ({
       where: {
         slug: id,
       },
+      populate: ["article"],
     });
 
     console.log(entity);
