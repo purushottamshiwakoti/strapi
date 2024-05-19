@@ -19,13 +19,19 @@
       "required": true,
       "max": 5
     },
-    "Review": {
-      "type": "blocks"
-    },
     "Image": {
       "type": "component",
       "repeatable": false,
       "component": "shared.shared-image"
+    },
+    "Review": {
+      "type": "customField",
+      "options": {
+        "output": "HTML",
+        "preset": "light"
+      },
+      "required": true,
+      "customField": "plugin::ckeditor.CKEditor"
     }
   }
 }

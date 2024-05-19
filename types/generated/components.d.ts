@@ -199,8 +199,16 @@ export interface ReusableComponentReview extends Schema.Component {
         },
         number
       >;
-    Review: Attribute.Blocks;
     Image: Attribute.Component<'shared.shared-image'>;
+    Review: Attribute.RichText &
+      Attribute.Required &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'HTML';
+          preset: 'light';
+        }
+      >;
   };
 }
 
