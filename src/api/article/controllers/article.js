@@ -11,9 +11,11 @@ module.exports = createCoreController("api::article.article", ({ strapi }) => ({
     const { id } = ctx.params; // Assuming the slug is passed as a parameter
     console.log(ctx.params);
     console.log({ id });
+    let locale = ctx.query.locale || "en";
     const entity = await strapi.query("api::article.article").findOne({
       where: {
         slug: id,
+        locale: locale,
       },
       populate: ["Image", "pages", "comments"],
     });

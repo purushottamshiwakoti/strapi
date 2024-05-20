@@ -941,17 +941,23 @@ export interface ApiArticleArticle extends Schema.CollectionType {
       'manyToMany',
       'api::page.page'
     >;
-    slug: Attribute.UID<'api::article.article', 'Title'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     comments: Attribute.Relation<
       'api::article.article',
       'oneToMany',
       'api::comment.comment'
     >;
+    slug: Attribute.String &
+      Attribute.CustomField<
+        'plugin::slug.slug',
+        {
+          kw: 'Title';
+        }
+      > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1491,17 +1497,23 @@ export interface ApiPagePage extends Schema.CollectionType {
         };
       }> &
       Attribute.DefaultTo<false>;
-    slug: Attribute.UID<'api::page.page', 'Title'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     articles: Attribute.Relation<
       'api::page.page',
       'manyToMany',
       'api::article.article'
     >;
+    slug: Attribute.String &
+      Attribute.CustomField<
+        'plugin::slug.slug',
+        {
+          kw: 'Title';
+        }
+      > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -7,6 +7,7 @@ import strapiCloud from "@strapi/plugin-cloud/strapi-admin";
 import colorPicker from "@strapi/plugin-color-picker/strapi-admin";
 import i18N from "@strapi/plugin-i18n/strapi-admin";
 import usersPermissions from "@strapi/plugin-users-permissions/strapi-admin";
+import slug from "custom-slug/strapi-admin";
 import menus from "strapi-plugin-menus/strapi-admin";
 import multiSelect from "strapi-plugin-multi-select/strapi-admin";
 import vercelDeploy from "strapi-plugin-vercel-deploy/strapi-admin";
@@ -19,6 +20,7 @@ renderAdmin(document.getElementById("strapi"), {
     "color-picker": colorPicker,
     i18n: i18N,
     "users-permissions": usersPermissions,
+    slug: slug,
     menus: menus,
     "multi-select": multiSelect,
     "vercel-deploy": vercelDeploy,
