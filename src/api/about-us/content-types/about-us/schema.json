@@ -4,7 +4,8 @@
   "info": {
     "singularName": "about-us",
     "pluralName": "about-uses",
-    "displayName": "About Us"
+    "displayName": "About Us",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -80,6 +81,27 @@
         }
       },
       "component": "shared.shared-image"
+    },
+    "SEO": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.seo"
+    },
+    "AboutIcons": {
+      "displayName": "AboutIcons",
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "reusable-component.about-icons"
     }
   }
 }

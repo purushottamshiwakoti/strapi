@@ -7,14 +7,30 @@
   },
   "options": {},
   "attributes": {
-    "name": {
+    "MetaTitle": {
+      "type": "string",
+      "required": true
+    },
+    "MetaDescription": {
+      "type": "text",
+      "required": true
+    },
+    "OgTitle": {
       "type": "string"
     },
-    "property": {
-      "type": "string"
-    },
-    "content": {
+    "OgDescription": {
       "type": "text"
+    },
+    "OgImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "CanonicalUrl": {
+      "type": "string"
     }
   }
 }

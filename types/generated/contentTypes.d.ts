@@ -930,6 +930,12 @@ export interface ApiAboutMeAboutMe extends Schema.SingleType {
           localized: true;
         };
       }>;
+    SEO: Attribute.Component<'shared.seo'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -960,6 +966,7 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
     singularName: 'about-us';
     pluralName: 'about-uses';
     displayName: 'About Us';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1019,6 +1026,18 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
         };
       }>;
     Gallery: Attribute.Component<'shared.shared-image', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    SEO: Attribute.Component<'shared.seo'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    AboutIcons: Attribute.Component<'reusable-component.about-icons', true> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1187,6 +1206,7 @@ export interface ApiContactContact extends Schema.SingleType {
     singularName: 'contact';
     pluralName: 'contacts';
     displayName: 'Contact';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1258,6 +1278,28 @@ export interface ApiContactContact extends Schema.SingleType {
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
+        };
+      }>;
+    SEO: Attribute.Component<'shared.seo'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    ShapeColor: Attribute.String &
+      Attribute.Required &
+      Attribute.CustomField<'plugin::color-picker.color'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    DotsColor: Attribute.String &
+      Attribute.Required &
+      Attribute.CustomField<'plugin::color-picker.color'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
         };
       }>;
     createdAt: Attribute.DateTime;
@@ -1361,7 +1403,7 @@ export interface ApiFooterFooter extends Schema.SingleType {
           localized: true;
         };
       }>;
-    FooterText: Attribute.Text &
+    CopyrightText: Attribute.Text &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1376,6 +1418,22 @@ export interface ApiFooterFooter extends Schema.SingleType {
       }>;
     BackgroundColor: Attribute.String &
       Attribute.CustomField<'plugin::color-picker.color'>;
+    TextColor: Attribute.String &
+      Attribute.Required &
+      Attribute.CustomField<'plugin::color-picker.color'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    SeperatorColor: Attribute.String &
+      Attribute.Required &
+      Attribute.CustomField<'plugin::color-picker.color'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1459,6 +1517,14 @@ export interface ApiHeaderHeader extends Schema.SingleType {
           localized: true;
         };
       }>;
+    FontColor: Attribute.String &
+      Attribute.Required &
+      Attribute.CustomField<'plugin::color-picker.color'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1500,7 +1566,7 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
     };
   };
   attributes: {
-    SEO: Attribute.Component<'shared.seo', true> &
+    SEO: Attribute.Component<'shared.seo'> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
@@ -1633,6 +1699,30 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
         };
       }> &
       Attribute.DefaultTo<true>;
+    showServiceAs: Attribute.Enumeration<['Grid', 'Carousel']> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.DefaultTo<'Grid'>;
+    showDonationAs: Attribute.Enumeration<['Grid', 'Carousel']> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.DefaultTo<'Grid'>;
+    MovementStarColor: Attribute.String &
+      Attribute.Required &
+      Attribute.CustomField<'plugin::color-picker.color'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1768,6 +1858,14 @@ export interface ApiNavbarNavbar extends Schema.SingleType {
           localized: false;
         };
       }>;
+    showFlag: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.DefaultTo<true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1841,6 +1939,12 @@ export interface ApiPagePage extends Schema.CollectionType {
           localized: false;
         };
       }>;
+    SEO: Attribute.Component<'shared.seo'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1872,6 +1976,7 @@ export interface ApiSeoSeo extends Schema.SingleType {
     GoogleAnalytics: Attribute.Text;
     GoogleTagsManager: Attribute.String;
     FacebookPexels: Attribute.Text;
+    logo: Attribute.Media & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_reusable_component_about_icons",
+  "info": {
+    "displayName": "AboutIcons"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Description": {
+      "type": "customField",
+      "options": {
+        "output": "HTML",
+        "preset": "standard"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
+    },
+    "Image": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.shared-image"
+    }
+  }
+}

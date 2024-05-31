@@ -1,5 +1,24 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface ReusableComponentAboutIcons extends Schema.Component {
+  collectionName: 'components_reusable_component_about_icons';
+  info: {
+    displayName: 'AboutIcons';
+  };
+  attributes: {
+    Title: Attribute.String & Attribute.Required;
+    Description: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'HTML';
+          preset: 'standard';
+        }
+      >;
+    Image: Attribute.Component<'shared.shared-image'>;
+  };
+}
+
 export interface ReusableComponentAbout extends Schema.Component {
   collectionName: 'components_reusable_component_abouts';
   info: {
@@ -64,6 +83,8 @@ export interface ReusableComponentDonationIcon extends Schema.Component {
     Title: Attribute.String & Attribute.Required;
     Description: Attribute.Text & Attribute.Required;
     Icon: Attribute.Component<'shared.shared-image'>;
+    TitleColor: Attribute.String &
+      Attribute.CustomField<'plugin::color-picker.color'>;
   };
 }
 
@@ -329,9 +350,12 @@ export interface SharedSeo extends Schema.Component {
     description: '';
   };
   attributes: {
-    name: Attribute.String;
-    property: Attribute.String;
-    content: Attribute.Text;
+    MetaTitle: Attribute.String & Attribute.Required;
+    MetaDescription: Attribute.Text & Attribute.Required;
+    OgTitle: Attribute.String;
+    OgDescription: Attribute.Text;
+    OgImage: Attribute.Media;
+    CanonicalUrl: Attribute.String;
   };
 }
 
@@ -385,6 +409,7 @@ export interface SharedSubMenu extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'reusable-component.about-icons': ReusableComponentAboutIcons;
       'reusable-component.about': ReusableComponentAbout;
       'reusable-component.banner': ReusableComponentBanner;
       'reusable-component.confirm-votes': ReusableComponentConfirmVotes;

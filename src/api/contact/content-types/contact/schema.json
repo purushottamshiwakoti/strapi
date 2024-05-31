@@ -4,7 +4,8 @@
   "info": {
     "singularName": "contact",
     "pluralName": "contacts",
-    "displayName": "Contact"
+    "displayName": "Contact",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -91,6 +92,38 @@
       },
       "type": "email",
       "required": true
+    },
+    "SEO": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.seo"
+    },
+    "ShapeColor": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "customField",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "required": true,
+      "customField": "plugin::color-picker.color"
+    },
+    "DotsColor": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "customField",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "required": true,
+      "customField": "plugin::color-picker.color"
     }
   }
 }
