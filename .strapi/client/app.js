@@ -13,7 +13,11 @@ import multiSelect from "strapi-plugin-multi-select/strapi-admin";
 import vercelDeploy from "strapi-plugin-vercel-deploy/strapi-admin";
 import { renderAdmin } from "@strapi/strapi/admin";
 
+import customisations from "../../src/admin/app.js";
+
 renderAdmin(document.getElementById("strapi"), {
+  customisations,
+
   plugins: {
     ckeditor: ckeditor,
     "strapi-cloud": strapiCloud,
