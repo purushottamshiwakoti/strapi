@@ -70,6 +70,15 @@ export interface ReusableComponentConfirmVotes extends Schema.Component {
     ButtonName: Attribute.String;
     ButtonLink: Attribute.String;
     BackgroundImage: Attribute.Media & Attribute.Required;
+    BackgroundColor: Attribute.String &
+      Attribute.Required &
+      Attribute.CustomField<'plugin::color-picker.color'>;
+    StarColor: Attribute.String &
+      Attribute.Required &
+      Attribute.CustomField<'plugin::color-picker.color'>;
+    ButtonColor: Attribute.String &
+      Attribute.Required &
+      Attribute.CustomField<'plugin::color-picker.color'>;
   };
 }
 
@@ -107,6 +116,7 @@ export interface ReusableComponentElectionDate extends Schema.Component {
   info: {
     displayName: 'ElectionDate';
     icon: 'calendar';
+    description: '';
   };
   attributes: {
     Title: Attribute.String & Attribute.Required;
@@ -115,6 +125,9 @@ export interface ReusableComponentElectionDate extends Schema.Component {
       Attribute.Required &
       Attribute.DefaultTo<true>;
     ElectionDate: Attribute.Date;
+    BackgroundColor: Attribute.String &
+      Attribute.Required &
+      Attribute.CustomField<'plugin::color-picker.color'>;
   };
 }
 
@@ -230,6 +243,9 @@ export interface ReusableComponentReview extends Schema.Component {
           preset: 'light';
         }
       >;
+    StarColor: Attribute.String &
+      Attribute.Required &
+      Attribute.CustomField<'plugin::color-picker.color'>;
   };
 }
 
