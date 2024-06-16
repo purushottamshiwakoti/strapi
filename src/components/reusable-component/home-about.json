@@ -1,0 +1,65 @@
+{
+  "collectionName": "components_reusable_component_home_abouts",
+  "info": {
+    "displayName": "HomeAbout"
+  },
+  "options": {},
+  "attributes": {
+    "Banner": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "Alt": {
+      "type": "string",
+      "required": true
+    },
+    "MainTitle": {
+      "type": "string",
+      "required": true
+    },
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Description": {
+      "type": "text",
+      "required": true
+    },
+    "Icon1": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "Icon1Title": {
+      "type": "string",
+      "required": true
+    },
+    "Icon1Description": {
+      "type": "text",
+      "required": true
+    },
+    "Icon2": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "Icon2Title": {
+      "type": "string",
+      "required": true
+    },
+    "Icon2Description": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

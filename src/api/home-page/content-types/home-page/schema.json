@@ -375,6 +375,61 @@
       "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
       "required": true,
       "customField": "plugin::color-picker.color"
+    },
+    "Hero": {
+      "displayName": "Carousel",
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "reusable-component.carousel",
+      "required": true
+    },
+    "Features": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "reusable-component.features"
+    },
+    "About": {
+      "displayName": "HomeAbout",
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "reusable-component.home-about"
+    },
+    "Campagin": {
+      "displayName": "Campagin",
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "reusable-component.campagin"
+    },
+    "MissionAndVison": {
+      "displayName": "MissionAndVison",
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "reusable-component.mission-and-vison"
     }
   }
 }

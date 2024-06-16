@@ -53,6 +53,46 @@ export interface ReusableComponentBanner extends Schema.Component {
   };
 }
 
+export interface ReusableComponentCampagin extends Schema.Component {
+  collectionName: 'components_reusable_component_campagins';
+  info: {
+    displayName: 'Campagin';
+  };
+  attributes: {
+    BackgroundImage: Attribute.Media & Attribute.Required;
+    Banner: Attribute.Media & Attribute.Required;
+    Title: Attribute.String & Attribute.Required;
+    SubTitle: Attribute.Text & Attribute.Required;
+    GoalText: Attribute.String & Attribute.Required;
+    GoalAmount: Attribute.BigInteger & Attribute.Required;
+    RaisedText: Attribute.String & Attribute.Required;
+    RaisedAmount: Attribute.BigInteger & Attribute.Required;
+    ShowButton: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<true>;
+    ButtonName: Attribute.String;
+    ButtonLink: Attribute.String;
+  };
+}
+
+export interface ReusableComponentCarousel extends Schema.Component {
+  collectionName: 'components_reusable_component_carousels';
+  info: {
+    displayName: 'Carousel';
+    icon: 'collapse';
+  };
+  attributes: {
+    Image: Attribute.Media & Attribute.Required;
+    Title: Attribute.String & Attribute.Required;
+    Description: Attribute.Text & Attribute.Required;
+    ShowButton: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<true>;
+    ButtonName: Attribute.String;
+    ButtonLink: Attribute.String;
+  };
+}
+
 export interface ReusableComponentConfirmVotes extends Schema.Component {
   collectionName: 'components_reusable_component_confirm_votes';
   info: {
@@ -148,11 +188,18 @@ export interface ReusableComponentFeatures extends Schema.Component {
   collectionName: 'components_reusable_component_features';
   info: {
     displayName: 'Features';
+    description: '';
   };
   attributes: {
-    Icon: Attribute.Media;
-    Title: Attribute.String;
-    Description: Attribute.Text;
+    Title: Attribute.String & Attribute.Required;
+    Description: Attribute.Text & Attribute.Required;
+    Image: Attribute.Media;
+    Alt: Attribute.String & Attribute.Required;
+    ShowButton: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<true>;
+    ButtonName: Attribute.String;
+    ButtonLink: Attribute.String;
   };
 }
 
@@ -165,6 +212,26 @@ export interface ReusableComponentFeedback extends Schema.Component {
     title: Attribute.String;
     img: Attribute.Media;
     client_number: Attribute.Integer;
+  };
+}
+
+export interface ReusableComponentHomeAbout extends Schema.Component {
+  collectionName: 'components_reusable_component_home_abouts';
+  info: {
+    displayName: 'HomeAbout';
+  };
+  attributes: {
+    Banner: Attribute.Media & Attribute.Required;
+    Alt: Attribute.String & Attribute.Required;
+    MainTitle: Attribute.String & Attribute.Required;
+    Title: Attribute.String & Attribute.Required;
+    Description: Attribute.Text & Attribute.Required;
+    Icon1: Attribute.Media & Attribute.Required;
+    Icon1Title: Attribute.String & Attribute.Required;
+    Icon1Description: Attribute.Text & Attribute.Required;
+    Icon2: Attribute.Media & Attribute.Required;
+    Icon2Title: Attribute.String & Attribute.Required;
+    Icon2Description: Attribute.Text & Attribute.Required;
   };
 }
 
@@ -428,6 +495,8 @@ declare module '@strapi/types' {
       'reusable-component.about-icons': ReusableComponentAboutIcons;
       'reusable-component.about': ReusableComponentAbout;
       'reusable-component.banner': ReusableComponentBanner;
+      'reusable-component.campagin': ReusableComponentCampagin;
+      'reusable-component.carousel': ReusableComponentCarousel;
       'reusable-component.confirm-votes': ReusableComponentConfirmVotes;
       'reusable-component.donation-icon': ReusableComponentDonationIcon;
       'reusable-component.donations': ReusableComponentDonations;
@@ -435,6 +504,7 @@ declare module '@strapi/types' {
       'reusable-component.faq': ReusableComponentFaq;
       'reusable-component.features': ReusableComponentFeatures;
       'reusable-component.feedback': ReusableComponentFeedback;
+      'reusable-component.home-about': ReusableComponentHomeAbout;
       'reusable-component.industries-service': ReusableComponentIndustriesService;
       'reusable-component.menu': ReusableComponentMenu;
       'reusable-component.news-campaign': ReusableComponentNewsCampaign;

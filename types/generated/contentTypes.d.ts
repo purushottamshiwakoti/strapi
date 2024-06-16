@@ -1848,6 +1848,31 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
           localized: false;
         };
       }>;
+    Hero: Attribute.Component<'reusable-component.carousel', true> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Features: Attribute.Component<'reusable-component.features', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    About: Attribute.Component<'reusable-component.home-about'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Campagin: Attribute.Component<'reusable-component.campagin'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

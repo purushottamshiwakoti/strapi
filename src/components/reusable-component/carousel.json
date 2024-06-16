@@ -1,11 +1,19 @@
 {
-  "collectionName": "components_reusable_component_features",
+  "collectionName": "components_reusable_component_carousels",
   "info": {
-    "displayName": "Features",
-    "description": ""
+    "displayName": "Carousel",
+    "icon": "collapse"
   },
   "options": {},
   "attributes": {
+    "Image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
     "Title": {
       "type": "string",
       "required": true
@@ -14,24 +22,14 @@
       "type": "text",
       "required": true
     },
-    "Image": {
-      "allowedTypes": [
-        "images"
-      ],
-      "type": "media",
-      "multiple": false
-    },
-    "Alt": {
-      "type": "string",
-      "required": true
-    },
     "ShowButton": {
       "type": "boolean",
       "default": true,
       "required": true
     },
     "ButtonName": {
-      "type": "string"
+      "type": "string",
+      "required": false
     },
     "ButtonLink": {
       "type": "string"
