@@ -35,6 +35,23 @@ export interface ReusableComponentAbout extends Schema.Component {
   };
 }
 
+export interface ReusableComponentAuther extends Schema.Component {
+  collectionName: 'components_reusable_component_authers';
+  info: {
+    displayName: 'Auther';
+  };
+  attributes: {
+    Name: Attribute.String & Attribute.Required;
+    Description: Attribute.Text & Attribute.Required;
+    Image: Attribute.Media<'images'> & Attribute.Required;
+    Alt: Attribute.String & Attribute.Required;
+    FacebookLink: Attribute.Text;
+    InstagramLink: Attribute.Text;
+    TwitterLink: Attribute.Text;
+    PinterestLink: Attribute.Text;
+  };
+}
+
 export interface ReusableComponentBanner extends Schema.Component {
   collectionName: 'components_shared_banners';
   info: {
@@ -49,7 +66,7 @@ export interface ReusableComponentBanner extends Schema.Component {
       Attribute.Required &
       Attribute.DefaultTo<false>;
     ButtonName: Attribute.String & Attribute.Required;
-    BannerImage: Attribute.Media & Attribute.Required;
+    BannerImage: Attribute.Media<'images'> & Attribute.Required;
   };
 }
 
@@ -59,8 +76,8 @@ export interface ReusableComponentCampagin extends Schema.Component {
     displayName: 'Campagin';
   };
   attributes: {
-    BackgroundImage: Attribute.Media & Attribute.Required;
-    Banner: Attribute.Media & Attribute.Required;
+    BackgroundImage: Attribute.Media<'images'> & Attribute.Required;
+    Banner: Attribute.Media<'images'> & Attribute.Required;
     Title: Attribute.String & Attribute.Required;
     SubTitle: Attribute.Text & Attribute.Required;
     GoalText: Attribute.String & Attribute.Required;
@@ -82,7 +99,7 @@ export interface ReusableComponentCarousel extends Schema.Component {
     icon: 'collapse';
   };
   attributes: {
-    Image: Attribute.Media & Attribute.Required;
+    Image: Attribute.Media<'images'> & Attribute.Required;
     Title: Attribute.String & Attribute.Required;
     Description: Attribute.Text & Attribute.Required;
     ShowButton: Attribute.Boolean &
@@ -109,7 +126,7 @@ export interface ReusableComponentConfirmVotes extends Schema.Component {
       Attribute.DefaultTo<true>;
     ButtonName: Attribute.String;
     ButtonLink: Attribute.String;
-    BackgroundImage: Attribute.Media & Attribute.Required;
+    BackgroundImage: Attribute.Media<'images'> & Attribute.Required;
     BackgroundColor: Attribute.String &
       Attribute.Required &
       Attribute.CustomField<'plugin::color-picker.color'>;
@@ -147,7 +164,7 @@ export interface ReusableComponentDonations extends Schema.Component {
   attributes: {
     Title: Attribute.String & Attribute.Required;
     Description: Attribute.Text & Attribute.Required;
-    BackgroundImage: Attribute.Media;
+    BackgroundImage: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
   };
 }
 
@@ -178,9 +195,8 @@ export interface ReusableComponentFaq extends Schema.Component {
     description: '';
   };
   attributes: {
-    Title: Attribute.String & Attribute.Required;
-    Image: Attribute.Component<'shared.shared-image'> & Attribute.Required;
-    QuestionAnswer: Attribute.Component<'shared.question-answer', true>;
+    Title: Attribute.Text & Attribute.Required;
+    Description: Attribute.Text & Attribute.Required;
   };
 }
 
@@ -193,7 +209,7 @@ export interface ReusableComponentFeatures extends Schema.Component {
   attributes: {
     Title: Attribute.String & Attribute.Required;
     Description: Attribute.Text & Attribute.Required;
-    Image: Attribute.Media;
+    Image: Attribute.Media<'images'>;
     Alt: Attribute.String & Attribute.Required;
     ShowButton: Attribute.Boolean &
       Attribute.Required &
@@ -210,7 +226,7 @@ export interface ReusableComponentFeedback extends Schema.Component {
   };
   attributes: {
     title: Attribute.String;
-    img: Attribute.Media;
+    img: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     client_number: Attribute.Integer;
   };
 }
@@ -221,15 +237,15 @@ export interface ReusableComponentHomeAbout extends Schema.Component {
     displayName: 'HomeAbout';
   };
   attributes: {
-    Banner: Attribute.Media & Attribute.Required;
+    Banner: Attribute.Media<'images'> & Attribute.Required;
     Alt: Attribute.String & Attribute.Required;
     MainTitle: Attribute.String & Attribute.Required;
     Title: Attribute.String & Attribute.Required;
     Description: Attribute.Text & Attribute.Required;
-    Icon1: Attribute.Media & Attribute.Required;
+    Icon1: Attribute.Media<'images'> & Attribute.Required;
     Icon1Title: Attribute.String & Attribute.Required;
     Icon1Description: Attribute.Text & Attribute.Required;
-    Icon2: Attribute.Media & Attribute.Required;
+    Icon2: Attribute.Media<'images'> & Attribute.Required;
     Icon2Title: Attribute.String & Attribute.Required;
     Icon2Description: Attribute.Text & Attribute.Required;
   };
@@ -243,7 +259,7 @@ export interface ReusableComponentIndustriesService extends Schema.Component {
   };
   attributes: {
     services: Attribute.String & Attribute.Required;
-    img: Attribute.Media;
+    img: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
   };
 }
 
@@ -256,6 +272,19 @@ export interface ReusableComponentMenu extends Schema.Component {
   attributes: {
     Name: Attribute.String;
     Link: Attribute.String;
+  };
+}
+
+export interface ReusableComponentMission extends Schema.Component {
+  collectionName: 'components_reusable_component_missions';
+  info: {
+    displayName: 'Mission';
+  };
+  attributes: {
+    Title: Attribute.String & Attribute.Required;
+    Description: Attribute.Text & Attribute.Required;
+    Image: Attribute.Media<'images'> & Attribute.Required;
+    Alt: Attribute.String & Attribute.Required;
   };
 }
 
@@ -279,7 +308,7 @@ export interface ReusableComponentOurTeam extends Schema.Component {
   attributes: {
     name: Attribute.String & Attribute.Required;
     designation: Attribute.String & Attribute.Required;
-    img: Attribute.Media;
+    img: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
   };
 }
 
@@ -352,6 +381,35 @@ export interface ReusableComponentSubCategory extends Schema.Component {
   attributes: {
     Name: Attribute.String & Attribute.Required;
     Slug: Attribute.String & Attribute.Required;
+  };
+}
+
+export interface ReusableComponentTeam extends Schema.Component {
+  collectionName: 'components_reusable_component_teams';
+  info: {
+    displayName: 'Team';
+  };
+  attributes: {
+    Name: Attribute.String & Attribute.Required;
+    Image: Attribute.Media<'images'> & Attribute.Required;
+    Alt: Attribute.String & Attribute.Required;
+    Position: Attribute.String & Attribute.Required;
+    ShowButton: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<true>;
+  };
+}
+
+export interface ReusableComponentVison extends Schema.Component {
+  collectionName: 'components_reusable_component_visons';
+  info: {
+    displayName: 'Vison';
+    description: '';
+  };
+  attributes: {
+    Title: Attribute.String & Attribute.Required;
+    Description: Attribute.Text & Attribute.Required;
+    Missions: Attribute.Component<'reusable-component.mission', true>;
   };
 }
 
@@ -437,7 +495,7 @@ export interface SharedSeo extends Schema.Component {
     MetaDescription: Attribute.Text & Attribute.Required;
     OgTitle: Attribute.String;
     OgDescription: Attribute.Text;
-    OgImage: Attribute.Media;
+    OgImage: Attribute.Media<'images'>;
     CanonicalUrl: Attribute.String;
   };
 }
@@ -462,7 +520,7 @@ export interface SharedSharedImage extends Schema.Component {
   };
   attributes: {
     alt: Attribute.String;
-    media: Attribute.Media;
+    media: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
   };
 }
 
@@ -494,6 +552,7 @@ declare module '@strapi/types' {
     export interface Components {
       'reusable-component.about-icons': ReusableComponentAboutIcons;
       'reusable-component.about': ReusableComponentAbout;
+      'reusable-component.auther': ReusableComponentAuther;
       'reusable-component.banner': ReusableComponentBanner;
       'reusable-component.campagin': ReusableComponentCampagin;
       'reusable-component.carousel': ReusableComponentCarousel;
@@ -507,12 +566,15 @@ declare module '@strapi/types' {
       'reusable-component.home-about': ReusableComponentHomeAbout;
       'reusable-component.industries-service': ReusableComponentIndustriesService;
       'reusable-component.menu': ReusableComponentMenu;
+      'reusable-component.mission': ReusableComponentMission;
       'reusable-component.news-campaign': ReusableComponentNewsCampaign;
       'reusable-component.our-team': ReusableComponentOurTeam;
       'reusable-component.review': ReusableComponentReview;
       'reusable-component.service-icons': ReusableComponentServiceIcons;
       'reusable-component.services': ReusableComponentServices;
       'reusable-component.sub-category': ReusableComponentSubCategory;
+      'reusable-component.team': ReusableComponentTeam;
+      'reusable-component.vison': ReusableComponentVison;
       'share-tabs.header-tabs': ShareTabsHeaderTabs;
       'shared.footer-counter': SharedFooterCounter;
       'shared.footer-menu': SharedFooterMenu;

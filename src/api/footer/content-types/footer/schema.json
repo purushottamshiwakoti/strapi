@@ -16,170 +16,158 @@
     }
   },
   "attributes": {
-    "Logo": {
-      "type": "component",
-      "repeatable": false,
-      "component": "shared.shared-image",
+    "Banner": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ],
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
       }
     },
-    "AboutTitle": {
-      "type": "string",
+    "Logo": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "Alt": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "type": "string",
+      "required": true
     },
-    "AboutDescription": {
+    "Description": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
       "type": "text",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "GetInTouchTitle": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "Phone": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "Email": {
-      "type": "email",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "Location": {
-      "type": "text",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      "required": true
     },
     "SocialMedia": {
       "type": "component",
       "repeatable": true,
-      "component": "shared.social-media",
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      }
-    },
-    "Counter": {
-      "type": "component",
-      "repeatable": true,
-      "component": "shared.footer-counter",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
-    },
-    "FooterMenu": {
-      "type": "component",
-      "repeatable": true,
-      "component": "shared.footer-menu",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "CopyrightText": {
-      "type": "text",
-      "required": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      },
+      "component": "shared.social-media"
     },
     "MenuTitle": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
       "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      "required": true
     },
-    "BackgroundColor": {
-      "type": "customField",
-      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
-      "customField": "plugin::color-picker.color"
-    },
-    "TextColor": {
+    "Menu": {
+      "type": "component",
+      "repeatable": true,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "customField",
-      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
-      "required": true,
-      "customField": "plugin::color-picker.color"
+      "component": "reusable-component.menu"
     },
-    "SeperatorColor": {
+    "ContactTitle": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "customField",
-      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
-      "required": true,
-      "customField": "plugin::color-picker.color"
+      "type": "string",
+      "required": true
     },
-    "CounterBackgroundColor": {
+    "Location": {
       "pluginOptions": {
         "i18n": {
-          "localized": false
+          "localized": true
         }
       },
-      "type": "customField",
-      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
-      "required": true,
-      "customField": "plugin::color-picker.color"
+      "type": "text",
+      "required": true
     },
-    "CounterText": {
+    "Phone1": {
       "pluginOptions": {
         "i18n": {
-          "localized": false
+          "localized": true
         }
       },
-      "type": "customField",
-      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
-      "required": true,
-      "customField": "plugin::color-picker.color"
+      "type": "text",
+      "required": true
     },
-    "IconColor": {
+    "Phne2": {
       "pluginOptions": {
         "i18n": {
-          "localized": false
+          "localized": true
         }
       },
-      "type": "customField",
-      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
-      "required": true,
-      "customField": "plugin::color-picker.color"
+      "type": "text"
+    },
+    "Email": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "email",
+      "required": true
+    },
+    "NewsLetterTitle": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    },
+    "NewsLetterDescription": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text",
+      "required": true
+    },
+    "NewsLetterPlaceholder": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    },
+    "Copyright": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text",
+      "required": true
     }
   }
 }

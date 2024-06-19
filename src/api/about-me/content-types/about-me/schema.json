@@ -16,6 +16,19 @@
     }
   },
   "attributes": {
+    "Banner": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
     "Title": {
       "pluginOptions": {
         "i18n": {
@@ -25,20 +38,44 @@
       "type": "string",
       "required": true
     },
-    "Description": {
+    "BreadcrumbHome": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "customField",
-      "options": {
-        "output": "HTML",
-        "preset": "standard"
-      },
-      "customField": "plugin::ckeditor.CKEditor"
+      "type": "string",
+      "required": true
     },
-    "Gallery": {
+    "BreadcrumbAboutMe": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    },
+    "AboutMe": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "reusable-component.home-about"
+    },
+    "FaqTitle": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    },
+    "Faq": {
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -46,8 +83,7 @@
           "localized": true
         }
       },
-      "component": "shared.shared-image",
-      "required": true
+      "component": "reusable-component.faq"
     },
     "SEO": {
       "type": "component",

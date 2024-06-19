@@ -16,36 +16,6 @@
     }
   },
   "attributes": {
-    "Title": {
-      "type": "text",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "Description": {
-      "type": "customField",
-      "options": {
-        "output": "HTML",
-        "preset": "rich"
-      },
-      "customField": "plugin::ckeditor.CKEditor",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "IsFeatured": {
-      "type": "boolean",
-      "default": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      }
-    },
     "Image": {
       "type": "media",
       "multiple": false,
@@ -59,11 +29,46 @@
         }
       }
     },
-    "pages": {
+    "Alt": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    },
+    "BannerImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "Description": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "customField",
+      "options": {
+        "output": "HTML",
+        "preset": "rich"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
+    },
+    "tags": {
       "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::page.page",
-      "inversedBy": "articles"
+      "relation": "oneToMany",
+      "target": "api::tag.tag",
+      "mappedBy": "article"
     },
     "comments": {
       "type": "relation",
@@ -71,7 +76,16 @@
       "target": "api::comment.comment",
       "mappedBy": "article"
     },
-    "slug": {
+    "title": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text",
+      "required": true
+    },
+    "Slug": {
       "pluginOptions": {
         "i18n": {
           "localized": false
@@ -79,20 +93,21 @@
       },
       "type": "customField",
       "options": {
-        "kw": "Title"
+        "pattern": "title"
       },
       "customField": "plugin::slug.slug"
     },
-    "SEO": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "shared.seo",
-      "required": false
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "articles"
+    },
+    "pages": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::page.page",
+      "mappedBy": "articles"
     }
   }
 }

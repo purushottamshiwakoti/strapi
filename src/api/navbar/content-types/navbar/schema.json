@@ -71,6 +71,16 @@
       "type": "boolean",
       "default": true,
       "required": true
+    },
+    "LogoWhite": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.shared-image"
     }
   }
 }

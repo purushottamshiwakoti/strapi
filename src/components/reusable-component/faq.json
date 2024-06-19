@@ -7,20 +7,12 @@
   "options": {},
   "attributes": {
     "Title": {
-      "type": "string",
+      "type": "text",
       "required": true
     },
-    "Image": {
-      "type": "component",
-      "repeatable": false,
-      "component": "shared.shared-image",
+    "Description": {
+      "type": "text",
       "required": true
-    },
-    "QuestionAnswer": {
-      "displayName": "QuestionAnswer",
-      "type": "component",
-      "repeatable": true,
-      "component": "shared.question-answer"
     }
   }
 }

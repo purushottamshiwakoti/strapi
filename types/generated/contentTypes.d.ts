@@ -903,6 +903,13 @@ export interface ApiAboutMeAboutMe extends Schema.SingleType {
     };
   };
   attributes: {
+    Banner: Attribute.Media<'images'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     Title: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
@@ -910,21 +917,34 @@ export interface ApiAboutMeAboutMe extends Schema.SingleType {
           localized: true;
         };
       }>;
-    Description: Attribute.RichText &
-      Attribute.CustomField<
-        'plugin::ckeditor.CKEditor',
-        {
-          output: 'HTML';
-          preset: 'standard';
-        }
-      > &
+    BreadcrumbHome: Attribute.String &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    Gallery: Attribute.Component<'shared.shared-image', true> &
+    BreadcrumbAboutMe: Attribute.String &
       Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    AboutMe: Attribute.Component<'reusable-component.home-about'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    FaqTitle: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Faq: Attribute.Component<'reusable-component.faq', true> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -977,67 +997,95 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
     };
   };
   attributes: {
-    AboutTitle: Attribute.String &
+    Banner: Attribute.Media<'images'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    Title: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    AboutDescription: Attribute.RichText &
-      Attribute.Required &
-      Attribute.CustomField<
-        'plugin::ckeditor.CKEditor',
-        {
-          output: 'HTML';
-          preset: 'light';
-        }
-      > &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    StoryTitle: Attribute.String &
+    BreadcrumbAboutUs: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    StoryDescription: Attribute.RichText &
+    BreadcrumbHome: Attribute.String &
       Attribute.Required &
-      Attribute.CustomField<
-        'plugin::ckeditor.CKEditor',
-        {
-          output: 'HTML';
-          preset: 'light';
-        }
-      > &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    FeaturedImage: Attribute.Component<'shared.shared-image'> &
+    CtaBanner: Attribute.Media<'images'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    CtaTitle: Attribute.String &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    Gallery: Attribute.Component<'shared.shared-image', true> &
+    CtaDescription: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    ShowCtaButton: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    CtaButton: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    CtaLink: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Teams: Attribute.Component<'reusable-component.team', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    TeamTitle: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    TeamSubtitle: Attribute.String &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
     SEO: Attribute.Component<'shared.seo'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    AboutIcons: Attribute.Component<'reusable-component.about-icons', true> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1084,10 +1132,25 @@ export interface ApiArticleArticle extends Schema.CollectionType {
     };
   };
   attributes: {
-    Title: Attribute.Text &
+    Image: Attribute.Media<'images'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    Alt: Attribute.String &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
+        };
+      }>;
+    BannerImage: Attribute.Media<'images'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
         };
       }>;
     Description: Attribute.RichText &
@@ -1103,35 +1166,28 @@ export interface ApiArticleArticle extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    IsFeatured: Attribute.Boolean &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }> &
-      Attribute.DefaultTo<false>;
-    Image: Attribute.Media &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    pages: Attribute.Relation<
+    tags: Attribute.Relation<
       'api::article.article',
-      'manyToMany',
-      'api::page.page'
+      'oneToMany',
+      'api::tag.tag'
     >;
     comments: Attribute.Relation<
       'api::article.article',
       'oneToMany',
       'api::comment.comment'
     >;
-    slug: Attribute.String &
+    title: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Slug: Attribute.String &
       Attribute.CustomField<
         'plugin::slug.slug',
         {
-          kw: 'Title';
+          pattern: 'title';
         }
       > &
       Attribute.SetPluginOptions<{
@@ -1139,12 +1195,16 @@ export interface ApiArticleArticle extends Schema.CollectionType {
           localized: false;
         };
       }>;
-    SEO: Attribute.Component<'shared.seo'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+    category: Attribute.Relation<
+      'api::article.article',
+      'manyToOne',
+      'api::category.category'
+    >;
+    pages: Attribute.Relation<
+      'api::article.article',
+      'manyToMany',
+      'api::page.page'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1164,6 +1224,167 @@ export interface ApiArticleArticle extends Schema.CollectionType {
       'api::article.article',
       'oneToMany',
       'api::article.article'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiBlogBlog extends Schema.SingleType {
+  collectionName: 'blogs';
+  info: {
+    singularName: 'blog';
+    pluralName: 'blogs';
+    displayName: 'Blog';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    BannerImage: Attribute.Media<'images'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    SearchTitle: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    SearchPlaceholder: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    CategoryTitle: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    ReatedPostTitle: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    TagsTitle: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    NoArticleDescription: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    BlogByTitle: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Author: Attribute.Component<'reusable-component.auther'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::blog.blog', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::blog.blog', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::blog.blog',
+      'oneToMany',
+      'api::blog.blog'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiCategoryCategory extends Schema.CollectionType {
+  collectionName: 'categories';
+  info: {
+    singularName: 'category';
+    pluralName: 'categories';
+    displayName: 'Category';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Slug: Attribute.String &
+      Attribute.CustomField<
+        'plugin::slug.slug',
+        {
+          pattern: 'title';
+        }
+      > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    articles: Attribute.Relation<
+      'api::category.category',
+      'oneToMany',
+      'api::article.article'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::category.category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::category.category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::category.category',
+      'oneToMany',
+      'api::category.category'
     >;
     locale: Attribute.String;
   };
@@ -1223,6 +1444,13 @@ export interface ApiContactContact extends Schema.SingleType {
     };
   };
   attributes: {
+    Banner: Attribute.Media<'images'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     Title: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
@@ -1230,42 +1458,28 @@ export interface ApiContactContact extends Schema.SingleType {
           localized: true;
         };
       }>;
-    Description: Attribute.RichText &
-      Attribute.Required &
-      Attribute.CustomField<
-        'plugin::ckeditor.CKEditor',
-        {
-          output: 'HTML';
-          preset: 'standard';
-        }
-      > &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    LocationTitle: Attribute.String &
+    BreadcrumbHome: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    Location: Attribute.Text &
+    BreadcrumbContact: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    PhoneTitle: Attribute.String &
+    AddressTitle: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    Phone: Attribute.String &
+    Address: Attribute.Text &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1279,7 +1493,61 @@ export interface ApiContactContact extends Schema.SingleType {
           localized: true;
         };
       }>;
-    Email: Attribute.Email &
+    Email1: Attribute.Email &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Email2: Attribute.Email &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    CallTitle: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Phone1: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Phone2: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    QuestionTitle: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    QuestionDescription: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    FormButton: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Iframe: Attribute.Text &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1290,22 +1558,6 @@ export interface ApiContactContact extends Schema.SingleType {
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
-        };
-      }>;
-    ShapeColor: Attribute.String &
-      Attribute.Required &
-      Attribute.CustomField<'plugin::color-picker.color'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    DotsColor: Attribute.String &
-      Attribute.Required &
-      Attribute.CustomField<'plugin::color-picker.color'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
         };
       }>;
     createdAt: Attribute.DateTime;
@@ -1349,43 +1601,29 @@ export interface ApiFooterFooter extends Schema.SingleType {
     };
   };
   attributes: {
-    Logo: Attribute.Component<'shared.shared-image'> &
+    Banner: Attribute.Media<'images'> &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
         };
       }>;
-    AboutTitle: Attribute.String &
+    Logo: Attribute.Media<'images'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    Alt: Attribute.String &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    AboutDescription: Attribute.Text &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    GetInTouchTitle: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    Phone: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    Email: Attribute.Email &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    Location: Attribute.Text &
+    Description: Attribute.Text &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1394,74 +1632,82 @@ export interface ApiFooterFooter extends Schema.SingleType {
     SocialMedia: Attribute.Component<'shared.social-media', true> &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: false;
-        };
-      }>;
-    Counter: Attribute.Component<'shared.footer-counter', true> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    FooterMenu: Attribute.Component<'shared.footer-menu', true> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    CopyrightText: Attribute.Text &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
           localized: true;
         };
       }>;
     MenuTitle: Attribute.String &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    BackgroundColor: Attribute.String &
-      Attribute.CustomField<'plugin::color-picker.color'>;
-    TextColor: Attribute.String &
-      Attribute.Required &
-      Attribute.CustomField<'plugin::color-picker.color'> &
+    Menu: Attribute.Component<'reusable-component.menu', true> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    SeperatorColor: Attribute.String &
+    ContactTitle: Attribute.String &
       Attribute.Required &
-      Attribute.CustomField<'plugin::color-picker.color'> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    CounterBackgroundColor: Attribute.String &
+    Location: Attribute.Text &
       Attribute.Required &
-      Attribute.CustomField<'plugin::color-picker.color'> &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: false;
+          localized: true;
         };
       }>;
-    CounterText: Attribute.String &
+    Phone1: Attribute.Text &
       Attribute.Required &
-      Attribute.CustomField<'plugin::color-picker.color'> &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: false;
+          localized: true;
         };
       }>;
-    IconColor: Attribute.String &
-      Attribute.Required &
-      Attribute.CustomField<'plugin::color-picker.color'> &
+    Phne2: Attribute.Text &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: false;
+          localized: true;
+        };
+      }>;
+    Email: Attribute.Email &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    NewsLetterTitle: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    NewsLetterDescription: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    NewsLetterPlaceholder: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Copyright: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
         };
       }>;
     createdAt: Attribute.DateTime;
@@ -1505,30 +1751,35 @@ export interface ApiHeaderHeader extends Schema.SingleType {
     };
   };
   attributes: {
-    Title: Attribute.String &
+    CallTitle: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    Icon: Attribute.Media &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    Menu: Attribute.Component<'reusable-component.menu', true> &
+    Phone: Attribute.BigInteger &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    NewsCampaign: Attribute.Component<
-      'reusable-component.news-campaign',
-      true
-    > &
+    Email: Attribute.Email &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Location: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    SocialText: Attribute.String &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1537,22 +1788,7 @@ export interface ApiHeaderHeader extends Schema.SingleType {
     SocialMedia: Attribute.Component<'shared.social-media', true> &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: false;
-        };
-      }>;
-    BackgroundColor: Attribute.String &
-      Attribute.CustomField<'plugin::color-picker.color'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
           localized: true;
-        };
-      }>;
-    FontColor: Attribute.String &
-      Attribute.Required &
-      Attribute.CustomField<'plugin::color-picker.color'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
         };
       }>;
     createdAt: Attribute.DateTime;
@@ -1873,6 +2109,12 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
           localized: true;
         };
       }>;
+    Vison: Attribute.Component<'reusable-component.vison'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2016,6 +2258,12 @@ export interface ApiNavbarNavbar extends Schema.SingleType {
         };
       }> &
       Attribute.DefaultTo<true>;
+    LogoWhite: Attribute.Component<'shared.shared-image'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2037,6 +2285,45 @@ export interface ApiNavbarNavbar extends Schema.SingleType {
       'api::navbar.navbar'
     >;
     locale: Attribute.String;
+  };
+}
+
+export interface ApiNotFoundNotFound extends Schema.SingleType {
+  collectionName: 'not_founds';
+  info: {
+    singularName: 'not-found';
+    pluralName: 'not-founds';
+    displayName: 'NotFound';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String & Attribute.Required;
+    Banner: Attribute.Media<'images'> & Attribute.Required;
+    BreadcrumbHome: Attribute.String & Attribute.Required;
+    BreadcrumbNotFound: Attribute.String & Attribute.Required;
+    Image: Attribute.Media<'images'> & Attribute.Required;
+    Description: Attribute.Text & Attribute.Required;
+    ButtonName: Attribute.String & Attribute.Required;
+    ButtonLink: Attribute.String & Attribute.Required;
+    PageTitle: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::not-found.not-found',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::not-found.not-found',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
   };
 }
 
@@ -2072,11 +2359,6 @@ export interface ApiPagePage extends Schema.CollectionType {
         };
       }> &
       Attribute.DefaultTo<false>;
-    articles: Attribute.Relation<
-      'api::page.page',
-      'manyToMany',
-      'api::article.article'
-    >;
     slug: Attribute.String &
       Attribute.CustomField<
         'plugin::slug.slug',
@@ -2095,6 +2377,11 @@ export interface ApiPagePage extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    articles: Attribute.Relation<
+      'api::page.page',
+      'manyToMany',
+      'api::article.article'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2126,7 +2413,7 @@ export interface ApiSeoSeo extends Schema.SingleType {
     GoogleAnalytics: Attribute.Text;
     GoogleTagsManager: Attribute.String;
     FacebookPexels: Attribute.Text;
-    logo: Attribute.Media & Attribute.Required;
+    logo: Attribute.Media<'images'> & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2137,12 +2424,12 @@ export interface ApiSeoSeo extends Schema.SingleType {
   };
 }
 
-export interface ApiSubPageSubPage extends Schema.CollectionType {
-  collectionName: 'sub_pages';
+export interface ApiTagTag extends Schema.CollectionType {
+  collectionName: 'tags';
   info: {
-    singularName: 'sub-page';
-    pluralName: 'sub-pages';
-    displayName: 'SubPage';
+    singularName: 'tag';
+    pluralName: 'tags';
+    displayName: 'Tag';
     description: '';
   };
   options: {
@@ -2154,59 +2441,41 @@ export interface ApiSubPageSubPage extends Schema.CollectionType {
     };
   };
   attributes: {
-    Title: Attribute.String &
+    title: Attribute.String &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    Slug: Attribute.UID<'api::sub-page.sub-page', 'Title'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    Offline: Attribute.Boolean &
+    Slug: Attribute.String &
+      Attribute.CustomField<
+        'plugin::slug.slug',
+        {
+          pattern: 'title';
+        }
+      > &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
         };
-      }> &
-      Attribute.DefaultTo<false>;
-    page: Attribute.Relation<
-      'api::sub-page.sub-page',
-      'oneToOne',
-      'api::page.page'
-    >;
-    parents: Attribute.Relation<
-      'api::sub-page.sub-page',
-      'oneToMany',
-      'api::sub-page.sub-page'
-    >;
-    children: Attribute.Relation<
-      'api::sub-page.sub-page',
+      }>;
+    article: Attribute.Relation<
+      'api::tag.tag',
       'manyToOne',
-      'api::sub-page.sub-page'
+      'api::article.article'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::sub-page.sub-page',
-      'oneToOne',
-      'admin::user'
-    > &
+    createdBy: Attribute.Relation<'api::tag.tag', 'oneToOne', 'admin::user'> &
       Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::sub-page.sub-page',
-      'oneToOne',
-      'admin::user'
-    > &
+    updatedBy: Attribute.Relation<'api::tag.tag', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     localizations: Attribute.Relation<
-      'api::sub-page.sub-page',
+      'api::tag.tag',
       'oneToMany',
-      'api::sub-page.sub-page'
+      'api::tag.tag'
     >;
     locale: Attribute.String;
   };
@@ -2235,6 +2504,8 @@ declare module '@strapi/types' {
       'api::about-me.about-me': ApiAboutMeAboutMe;
       'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::article.article': ApiArticleArticle;
+      'api::blog.blog': ApiBlogBlog;
+      'api::category.category': ApiCategoryCategory;
       'api::comment.comment': ApiCommentComment;
       'api::contact.contact': ApiContactContact;
       'api::footer.footer': ApiFooterFooter;
@@ -2242,9 +2513,10 @@ declare module '@strapi/types' {
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::message.message': ApiMessageMessage;
       'api::navbar.navbar': ApiNavbarNavbar;
+      'api::not-found.not-found': ApiNotFoundNotFound;
       'api::page.page': ApiPagePage;
       'api::seo.seo': ApiSeoSeo;
-      'api::sub-page.sub-page': ApiSubPageSubPage;
+      'api::tag.tag': ApiTagTag;
     }
   }
 }

@@ -16,6 +16,19 @@
     }
   },
   "attributes": {
+    "Banner": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
     "Title": {
       "pluginOptions": {
         "i18n": {
@@ -25,21 +38,7 @@
       "type": "string",
       "required": true
     },
-    "Description": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "customField",
-      "options": {
-        "output": "HTML",
-        "preset": "standard"
-      },
-      "required": true,
-      "customField": "plugin::ckeditor.CKEditor"
-    },
-    "LocationTitle": {
+    "BreadcrumbHome": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -48,31 +47,31 @@
       "type": "string",
       "required": true
     },
-    "Location": {
+    "BreadcrumbContact": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    },
+    "AddressTitle": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    },
+    "Address": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
       "type": "text",
-      "required": true
-    },
-    "PhoneTitle": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string",
-      "required": true
-    },
-    "Phone": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string",
       "required": true
     },
     "EmailTitle": {
@@ -84,13 +83,83 @@
       "type": "string",
       "required": true
     },
-    "Email": {
+    "Email1": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
       "type": "email",
+      "required": true
+    },
+    "Email2": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "email"
+    },
+    "CallTitle": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    },
+    "Phone1": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text",
+      "required": true
+    },
+    "Phone2": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text"
+    },
+    "QuestionTitle": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    },
+    "QuestionDescription": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text",
+      "required": true
+    },
+    "FormButton": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    },
+    "Iframe": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text",
       "required": true
     },
     "SEO": {
@@ -102,28 +171,6 @@
         }
       },
       "component": "shared.seo"
-    },
-    "ShapeColor": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "customField",
-      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
-      "required": true,
-      "customField": "plugin::color-picker.color"
-    },
-    "DotsColor": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "customField",
-      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
-      "required": true,
-      "customField": "plugin::color-picker.color"
     }
   }
 }

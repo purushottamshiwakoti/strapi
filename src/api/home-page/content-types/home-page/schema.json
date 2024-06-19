@@ -187,7 +187,9 @@
         }
       },
       "type": "dynamiczone",
-      "components": ["reusable-component.faq"]
+      "components": [
+        "reusable-component.faq"
+      ]
     },
     "ShowDonationTitle": {
       "pluginOptions": {
@@ -205,7 +207,10 @@
         }
       },
       "type": "enumeration",
-      "enum": ["Grid", "Carousel"],
+      "enum": [
+        "Grid",
+        "Carousel"
+      ],
       "required": true,
       "default": "Grid"
     },
@@ -216,7 +221,10 @@
         }
       },
       "type": "enumeration",
-      "enum": ["Grid", "Carousel"],
+      "enum": [
+        "Grid",
+        "Carousel"
+      ],
       "required": true,
       "default": "Grid"
     },
@@ -411,6 +419,17 @@
         }
       },
       "component": "reusable-component.campagin"
+    },
+    "Vison": {
+      "displayName": "Vison",
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "reusable-component.vison"
     }
   }
 }

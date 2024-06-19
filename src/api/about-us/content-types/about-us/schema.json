@@ -16,7 +16,20 @@
     }
   },
   "attributes": {
-    "AboutTitle": {
+    "Banner": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "Title": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -25,21 +38,7 @@
       "type": "string",
       "required": true
     },
-    "AboutDescription": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "customField",
-      "options": {
-        "output": "HTML",
-        "preset": "light"
-      },
-      "customField": "plugin::ckeditor.CKEditor",
-      "required": true
-    },
-    "StoryTitle": {
+    "BreadcrumbAboutUs": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -48,31 +47,73 @@
       "type": "string",
       "required": true
     },
-    "StoryDescription": {
+    "BreadcrumbHome": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "customField",
-      "options": {
-        "output": "HTML",
-        "preset": "light"
-      },
-      "customField": "plugin::ckeditor.CKEditor",
+      "type": "string",
       "required": true
     },
-    "FeaturedImage": {
-      "type": "component",
-      "repeatable": false,
+    "CtaBanner": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "CtaTitle": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "component": "shared.shared-image"
+      "type": "string",
+      "required": true
     },
-    "Gallery": {
+    "CtaDescription": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text",
+      "required": true
+    },
+    "ShowCtaButton": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "boolean",
+      "required": true
+    },
+    "CtaButton": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "CtaLink": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "Teams": {
+      "displayName": "Team",
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -80,7 +121,25 @@
           "localized": true
         }
       },
-      "component": "shared.shared-image"
+      "component": "reusable-component.team"
+    },
+    "TeamTitle": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    },
+    "TeamSubtitle": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
     },
     "SEO": {
       "type": "component",
@@ -91,17 +150,6 @@
         }
       },
       "component": "shared.seo"
-    },
-    "AboutIcons": {
-      "displayName": "AboutIcons",
-      "type": "component",
-      "repeatable": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "reusable-component.about-icons"
     }
   }
 }

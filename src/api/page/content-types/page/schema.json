@@ -35,12 +35,6 @@
         }
       }
     },
-    "articles": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::article.article",
-      "mappedBy": "pages"
-    },
     "slug": {
       "pluginOptions": {
         "i18n": {
@@ -62,6 +56,12 @@
         }
       },
       "component": "shared.seo"
+    },
+    "articles": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::article.article",
+      "inversedBy": "pages"
     }
   }
 }
