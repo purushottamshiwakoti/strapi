@@ -1205,6 +1205,12 @@ export interface ApiArticleArticle extends Schema.CollectionType {
       'manyToMany',
       'api::page.page'
     >;
+    SEO: Attribute.Component<'shared.seo'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1838,252 +1844,6 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
           localized: false;
         };
       }>;
-    Banner: Attribute.Component<'reusable-component.banner'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    Election: Attribute.Component<'reusable-component.election-date'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    Services: Attribute.Component<'reusable-component.services'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    AboutSFM: Attribute.Component<'reusable-component.about'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    DonationText: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    DonationDescription: Attribute.Text &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    DonationIcons: Attribute.Component<
-      'reusable-component.donation-icon',
-      true
-    > &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    MovementTitle: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    MovementDescription: Attribute.Text &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    MovementIcon: Attribute.Component<
-      'reusable-component.donation-icon',
-      true
-    > &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    SocialMedia: Attribute.Component<'shared.social-media', true> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    ReviewTitle: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    ReviewDescription: Attribute.Text &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    Reviews: Attribute.Component<'reusable-component.review', true> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    ConfirmVotes: Attribute.Component<'reusable-component.confirm-votes'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    FAQTitle: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    FAQSubTitle: Attribute.Text &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    FAQ: Attribute.DynamicZone<['reusable-component.faq']> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    ShowDonationTitle: Attribute.Boolean &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }> &
-      Attribute.DefaultTo<true>;
-    showServiceAs: Attribute.Enumeration<['Grid', 'Carousel']> &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }> &
-      Attribute.DefaultTo<'Grid'>;
-    showDonationAs: Attribute.Enumeration<['Grid', 'Carousel']> &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }> &
-      Attribute.DefaultTo<'Grid'>;
-    MovementStarColor: Attribute.String &
-      Attribute.Required &
-      Attribute.CustomField<'plugin::color-picker.color'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    ServicesStarColor: Attribute.String &
-      Attribute.Required &
-      Attribute.CustomField<'plugin::color-picker.color'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    ShowServicesStar: Attribute.Boolean &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }> &
-      Attribute.DefaultTo<false>;
-    ServicesBackgroundColor: Attribute.String &
-      Attribute.Required &
-      Attribute.CustomField<'plugin::color-picker.color'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    AboutSFMBackgroungColor: Attribute.String &
-      Attribute.Required &
-      Attribute.CustomField<'plugin::color-picker.color'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    DonationBackgroungColor: Attribute.String &
-      Attribute.Required &
-      Attribute.CustomField<'plugin::color-picker.color'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    FeaturedTitle: Attribute.String &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    FeaturedDescription: Attribute.Text &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    ShowFeaturedStar: Attribute.Boolean &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }> &
-      Attribute.DefaultTo<true>;
-    FeaturedStarColor: Attribute.String &
-      Attribute.Required &
-      Attribute.CustomField<'plugin::color-picker.color'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    FeaturedBackgroundColor: Attribute.String &
-      Attribute.Required &
-      Attribute.CustomField<'plugin::color-picker.color'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    ReviewStarColor: Attribute.String &
-      Attribute.Required &
-      Attribute.CustomField<'plugin::color-picker.color'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    FaqStarColor: Attribute.String &
-      Attribute.Required &
-      Attribute.CustomField<'plugin::color-picker.color'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    FaqActiveColor: Attribute.String &
-      Attribute.Required &
-      Attribute.CustomField<'plugin::color-picker.color'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
     Hero: Attribute.Component<'reusable-component.carousel', true> &
       Attribute.Required &
       Attribute.SetPluginOptions<{
@@ -2110,6 +1870,34 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
         };
       }>;
     Vison: Attribute.Component<'reusable-component.vison'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    EventTitle: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    EventDescription: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    BlogTitle: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    BlogDescription: Attribute.Text &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -2299,16 +2087,75 @@ export interface ApiNotFoundNotFound extends Schema.SingleType {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    Title: Attribute.String & Attribute.Required;
-    Banner: Attribute.Media<'images'> & Attribute.Required;
-    BreadcrumbHome: Attribute.String & Attribute.Required;
-    BreadcrumbNotFound: Attribute.String & Attribute.Required;
-    Image: Attribute.Media<'images'> & Attribute.Required;
-    Description: Attribute.Text & Attribute.Required;
-    ButtonName: Attribute.String & Attribute.Required;
-    ButtonLink: Attribute.String & Attribute.Required;
-    PageTitle: Attribute.String & Attribute.Required;
+    Title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Banner: Attribute.Media<'images'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    BreadcrumbHome: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    BreadcrumbNotFound: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Image: Attribute.Media<'images'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Description: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    ButtonName: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    ButtonLink: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    PageTitle: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2324,6 +2171,12 @@ export interface ApiNotFoundNotFound extends Schema.SingleType {
       'admin::user'
     > &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::not-found.not-found',
+      'oneToMany',
+      'api::not-found.not-found'
+    >;
+    locale: Attribute.String;
   };
 }
 

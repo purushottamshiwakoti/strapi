@@ -26,356 +26,6 @@
       },
       "component": "shared.seo"
     },
-    "Banner": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "reusable-component.banner"
-    },
-    "Election": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "reusable-component.election-date"
-    },
-    "Services": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "reusable-component.services"
-    },
-    "AboutSFM": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "reusable-component.about"
-    },
-    "DonationText": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string"
-    },
-    "DonationDescription": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "text"
-    },
-    "DonationIcons": {
-      "type": "component",
-      "repeatable": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "reusable-component.donation-icon"
-    },
-    "MovementTitle": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string"
-    },
-    "MovementDescription": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "text"
-    },
-    "MovementIcon": {
-      "type": "component",
-      "repeatable": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "reusable-component.donation-icon"
-    },
-    "SocialMedia": {
-      "type": "component",
-      "repeatable": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "shared.social-media"
-    },
-    "ReviewTitle": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string"
-    },
-    "ReviewDescription": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "text"
-    },
-    "Reviews": {
-      "type": "component",
-      "repeatable": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "reusable-component.review"
-    },
-    "ConfirmVotes": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "reusable-component.confirm-votes"
-    },
-    "FAQTitle": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string"
-    },
-    "FAQSubTitle": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "text"
-    },
-    "FAQ": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "dynamiczone",
-      "components": [
-        "reusable-component.faq"
-      ]
-    },
-    "ShowDonationTitle": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "boolean",
-      "default": true
-    },
-    "showServiceAs": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "enumeration",
-      "enum": [
-        "Grid",
-        "Carousel"
-      ],
-      "required": true,
-      "default": "Grid"
-    },
-    "showDonationAs": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "enumeration",
-      "enum": [
-        "Grid",
-        "Carousel"
-      ],
-      "required": true,
-      "default": "Grid"
-    },
-    "MovementStarColor": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "customField",
-      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
-      "required": true,
-      "customField": "plugin::color-picker.color"
-    },
-    "ServicesStarColor": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "customField",
-      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
-      "required": true,
-      "customField": "plugin::color-picker.color"
-    },
-    "ShowServicesStar": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "boolean",
-      "default": false,
-      "required": true
-    },
-    "ServicesBackgroundColor": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "customField",
-      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
-      "required": true,
-      "customField": "plugin::color-picker.color"
-    },
-    "AboutSFMBackgroungColor": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "customField",
-      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
-      "required": true,
-      "customField": "plugin::color-picker.color"
-    },
-    "DonationBackgroungColor": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "customField",
-      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
-      "required": true,
-      "customField": "plugin::color-picker.color"
-    },
-    "FeaturedTitle": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string",
-      "required": true
-    },
-    "FeaturedDescription": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "text",
-      "required": false
-    },
-    "ShowFeaturedStar": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "boolean",
-      "default": true,
-      "required": true
-    },
-    "FeaturedStarColor": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "customField",
-      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
-      "required": true,
-      "customField": "plugin::color-picker.color"
-    },
-    "FeaturedBackgroundColor": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "customField",
-      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
-      "required": true,
-      "customField": "plugin::color-picker.color"
-    },
-    "ReviewStarColor": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "customField",
-      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
-      "required": true,
-      "customField": "plugin::color-picker.color"
-    },
-    "FaqStarColor": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "customField",
-      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
-      "required": true,
-      "customField": "plugin::color-picker.color"
-    },
-    "FaqActiveColor": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "customField",
-      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
-      "required": true,
-      "customField": "plugin::color-picker.color"
-    },
     "Hero": {
       "displayName": "Carousel",
       "type": "component",
@@ -430,6 +80,42 @@
         }
       },
       "component": "reusable-component.vison"
+    },
+    "EventTitle": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    },
+    "EventDescription": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text",
+      "required": true
+    },
+    "BlogTitle": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    },
+    "BlogDescription": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text",
+      "required": true
     }
   }
 }
